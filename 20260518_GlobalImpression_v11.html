@@ -1,0 +1,3259 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Global Impression | 2026-05-18</title>
+<template id="__bundler_thumbnail" data-bg-color="#b6c5ab">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#b6c5ab"/>
+    <ellipse cx="950" cy="200" rx="80" ry="80" fill="#e6a98a" opacity="0.85"/>
+    <ellipse cx="950" cy="200" rx="50" ry="50" fill="#f4c8b0" opacity="0.9"/>
+    <text x="100" y="380" font-family="Georgia, serif" font-style="italic" font-size="110" font-weight="500" fill="#1d2e26" letter-spacing="-2">Weekly Global</text>
+    <text x="100" y="500" font-family="Georgia, serif" font-style="italic" font-size="110" font-weight="500" fill="#1d2e26" letter-spacing="-2">Impression</text>
+    <text x="100" y="560" font-family="monospace" font-size="22" font-weight="700" fill="#1d2e26" opacity="0.65" letter-spacing="3">2026-05-18</text>
+  </svg>
+</template>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ─────────────────────────────────────────────────────────────────
+     v6 — Editorial refactor (Claude-system 원칙 → GGGI 톤 번안)
+     · Cream canvas + 단일 코랄 액션 + 도메인 5색 정규화 (1px 라인)
+     · Display: Cormorant Garamond (Tiempos Headline 대체)
+     · Korean: Noto Sans KR · Mono: JetBrains Mono
+     ───────────────────────────────────────────────────────────────── */
+  :root {
+    /* Surface — 따뜻한 크림 캔버스 + 다크 잉크 한 쌍 */
+    --canvas:           #faf9f5;
+    --surface-soft:     #f5f0e8;
+    --surface-card:     #efe9de;
+    --surface-strong:   #e8e0d2;
+    --hairline:         #e6dfd8;
+    --hairline-soft:    #ebe6df;
+
+    /* Dark surfaces — 따뜻한 잉크 계열 (차가운 청록 #172E28 → 따뜻한 #161b1a) */
+    --surface-dark:        #161b1a;
+    --surface-dark-soft:   #1d2322;
+    --surface-dark-elev:   #252c2a;
+    --on-dark:             #faf9f5;
+    --on-dark-soft:        #a09d96;
+    --on-dark-mute:        #6b7672;
+
+    /* Ink — 따뜻한 검정 한 가족 */
+    --ink:           #141413;
+    --body-strong:   #252523;
+    --body:          #3d3d3a;
+    --muted:         #6c6a64;
+    --muted-soft:    #8e8b82;
+
+    /* Brand — 단 하나의 액션 컬러 (v10 · Poppy Red · 모네 Wild Poppies) */
+    --primary:          #c84d4d;
+    --primary-active:   #a23838;
+    --primary-soft:     #f0d5d5;
+
+    /* Accent — GGGI 정체성 보존용 (sparingly) */
+    --accent-emerald:   #3f8a6e;
+    --accent-amber:     #c98b3a;
+
+    /* Monet · Giverny Garden Palette ─ Hero · Dialogue · Footer 전용 */
+    --lily-light:     #e8ecd9; /* 수련잎 위 햇빛 */
+    --lily-mist:      #d6dec8; /* 안개 낀 수면 */
+    --pond-sage:      #b6c5ab; /* 수면 본체 */
+    --pond-deep:      #8ba898; /* 수련잎 그림자 */
+    --pond-shadow:    #5a7568; /* 다리 아래 깊은 그림자 */
+    --pond-night:     #2f4339; /* 황혼 후 수면 */
+    --pond-midnight:  #1d2e26; /* 가장 깊은 수면 */
+    --lily-pink:      #e6a98a; /* 분홍 수련 꽃잎 */
+    --sunlight-gold:  #d4b380; /* 햇살 노란 액센트 */
+    --shadow-lavender:#b8a8c4; /* 그림자의 보라 */
+
+    /* Pond Blue — v10: 모네 수련 시리즈의 수면 반사 톤 */
+    --reflect-sky:     #8aa8b8; /* 하늘 반사 — 라이트 블루-그레이 */
+    --pond-cobalt:     #3a5d78; /* 수면 깊이 — 코발트 */
+    --periwinkle-mist: #a2b8c6; /* 대기 — 페리윙클 */
+
+    /* Domain hues — Monet 정원의 다섯 빛깔로 재매핑 (AA 콘트라스트 확보) */
+    --d-geo:  #5e7896;  /* Reflected Sky Blue · 지정학 (수면에 비친 하늘) — v10 */
+    --d-mac:  #4f7158;  /* Pond Sage Shaded · 거시경제 (수면) */
+    --d-cli:  #2f5f4f;  /* Pond Deep · 기후 (수련잎 그늘) */
+    --d-grn:  #6c7732;  /* Lily Light Shaded · 녹색성장 (햇빛받은 잎) */
+    --d-ai:   #8a6534;  /* Sunlight Gold · AI (햇살) */
+    /* dark-mode variants (밝게 — 어두운 수면 위 빛) */
+    --d-geo-dark: #a4bbd0;  /* v10: 페리윙클 톤 */
+    --d-mac-dark: #a8c2a8;
+    --d-cli-dark: #8ec0a8;
+    --d-grn-dark: #c8d28a;
+    --d-ai-dark:  #d8b078;
+
+    /* Semantic */
+    --success: #5d8a55;
+    --warning: #c98b3a;
+    --error:   #b8523a;
+
+    /* Legacy aliases — JS·HTML 셀렉터 호환 위해 유지 */
+    --geo: var(--d-geo);
+    --mac: var(--d-mac);
+    --cli: var(--d-cli);
+    --grn: var(--d-grn);
+    --ai:  var(--d-ai);
+    --text:   var(--body);
+    --bg:     var(--canvas);
+    --card:   var(--surface-card);
+    --border: var(--hairline);
+
+    /* Type */
+    --font-display: 'Cormorant Garamond', 'Tiempos Headline', Garamond, 'Times New Roman', serif;
+    --font-body:    'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  [data-theme="dark"] {
+    --canvas:           #0a1d26;
+    --surface-soft:     #0e212c;
+    --surface-card:     #12293a;
+    --surface-strong:   #1a3242;
+    --hairline:         #2a3e50;
+    --hairline-soft:    #1d2d40;
+
+    --surface-dark:        #061322;
+    --surface-dark-soft:   #0a1d26;
+    --surface-dark-elev:   #12293a;
+
+    --ink:           #faf9f5;
+    --body-strong:   #f6f1e0;
+    --body:          #f0e9d4;
+    --muted:         #c0b9a4;
+    --muted-soft:    #948c79;
+
+    --on-dark:       #faf9f5;
+    --on-dark-soft:  #d0c9b4;
+
+    --primary-soft:  #3a261d;
+
+    --geo: var(--d-geo-dark);
+    --mac: var(--d-mac-dark);
+    --cli: var(--d-cli-dark);
+    --grn: var(--d-grn-dark);
+    --ai:  var(--d-ai-dark);
+    --text:   var(--body);
+    --bg:     var(--canvas);
+    --card:   var(--surface-card);
+    --border: var(--hairline);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* iOS Safari 가로 모드 자동 텍스트 확대 방지 */
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--canvas);
+    color: var(--body);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    transition: background .3s, color .3s;
+    /* 한국어 타이포그래피 — 단어 단위 줄바꿈 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-break: strict;
+    text-wrap: pretty;
+  }
+  ::selection { background: var(--primary); color: var(--canvas); }
+
+  /* ── LUCIDE ICON HELPERS ── */
+  .lucide {
+    width: 17px; height: 17px;
+    stroke: currentColor; fill: none;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    display: inline-block; vertical-align: -3.5px;
+    flex-shrink: 0;
+  }
+  .lucide-sm { width: 13px; height: 13px; vertical-align: -2px; }
+  .lucide-lg { width: 22px; height: 22px; vertical-align: -5px; }
+  nav a .lucide.nav-icon { vertical-align: -4px; margin-right: 6px; }
+  .filter-btn .lucide { margin-right: 4px; }
+
+  /* watch-list status dot */
+  .wi-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin: 0 6px 0 2px;
+  }
+  .wi-dot-new { background: var(--primary); }
+  .wi-dot-upd { background: var(--accent-emerald); }
+  .wi-dot-mon { background: var(--muted-soft); }
+
+  /* ── PROGRESS BAR ── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0;
+    width: 0%; height: 2px;
+    background: var(--ink);
+    z-index: 9999;
+    transition: width .1s linear;
+  }
+  [data-theme="dark"] #progress-bar { background: var(--on-dark); }
+
+  /* ── THEME TOGGLE ── */
+  #theme-toggle {
+    position: absolute; top: 20px; right: 24px; z-index: 10;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(20,20,19,0.18);
+    background: rgba(250,249,245,0.55);
+    backdrop-filter: blur(8px);
+    cursor: pointer; color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s, transform .2s, color .3s;
+  }
+  #theme-toggle:hover { background: rgba(250,249,245,0.8); transform: scale(1.04); }
+  [data-theme="dark"] #theme-toggle {
+    border-color: rgba(244,241,230,0.22);
+    background: rgba(244,241,230,0.08);
+    color: #f4f1e6;
+  }
+  [data-theme="dark"] #theme-toggle:hover { background: rgba(244,241,230,0.16); }
+
+  /* ── HERO — Monet Giverny, Morning (A안 · 라이트 모드 기본) ── */
+  header {
+    position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 40px 64px 36px;
+    overflow: hidden;
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse 38% 50% at 86% 18%, rgba(230,169,138,0.32) 0%, transparent 60%),
+      radial-gradient(ellipse 48% 65% at 14% 58%, rgba(212,179,128,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 42% 50% at 92% 92%, rgba(184,168,196,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 36% 42% at 8% 96%, rgba(90,117,104,0.20) 0%, transparent 55%),
+      linear-gradient(160deg, var(--lily-mist) 0%, var(--pond-sage) 55%, var(--pond-deep) 100%);
+    transition: background .4s, color .4s;
+  }
+  /* 분홍 수련 한 송이 — 우상단 따뜻한 점 */
+  header::after {
+    content: ''; position: absolute;
+    width: 22px; height: 22px;
+    right: calc(22% - 85px); top: 41px;
+    background: radial-gradient(circle, #f4c8b0 0%, var(--lily-pink) 50%, transparent 75%);
+    border-radius: 50%; filter: blur(2.5px);
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* 모네 붓터치 — SVG fractal noise overlay */
+  header::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  .hero-glow-1, .hero-glow-2, .hero-glow-3, .hero-grid { display: none; }
+  .hero-content { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; width: 100%; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 700; letter-spacing: 1.8px;
+    text-transform: uppercase; color: rgba(20,20,19,0.62);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .hero-eyebrow::before { display: none; }
+  .hero-title-row {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 64px; flex-wrap: wrap;
+  }
+  header h1 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(36px, 4.6vw, 58px);
+    line-height: 1.02; letter-spacing: -0.02em;
+    color: var(--pond-midnight);
+    white-space: nowrap;
+  }
+  .hero-titles { display: flex; flex-direction: column; gap: 6px; }
+  .hero-subtitle-kr {
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--body-strong);
+    opacity: 0.78;
+    margin-left: 1ch;
+  }
+  [data-theme="dark"] .hero-subtitle-kr { color: #ecf0eb; opacity: 0.82; }
+  .hero-subtitle, .hero-divider { display: none; }
+  .hero-stats {
+    display: flex; gap: 44px; align-items: flex-start;
+    margin-top: 26px; flex-wrap: wrap;
+  }
+  .hero-stat { display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; }
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px; line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--pond-midnight);
+  }
+  .hero-stat-num.s-blue,
+  .hero-stat-num.s-purple,
+  .hero-stat-num.s-red,
+  .hero-stat-num.s-green,
+  .hero-stat-num.s-amber { color: var(--pond-midnight); }
+  .hero-stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px; color: rgba(20,20,19,0.62);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  /* Dark mode: Pond Afternoon (B안) — 깊어진 수면 + 크림 글씨 */
+  [data-theme="dark"] header {
+    color: #f4f1e6;
+    background:
+      radial-gradient(ellipse 40% 55% at 84% 22%, rgba(230,169,138,0.28) 0%, transparent 60%),
+      radial-gradient(ellipse 48% 60% at 12% 62%, rgba(180,200,165,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 48% at 90% 88%, rgba(184,168,196,0.16) 0%, transparent 55%),
+      linear-gradient(160deg, var(--pond-deep) 0%, var(--pond-shadow) 50%, var(--pond-night) 100%);
+  }
+  [data-theme="dark"] header::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.4;
+  }
+  [data-theme="dark"] header::after { opacity: 0.9; filter: blur(0.5px); }
+  [data-theme="dark"] header h1,
+  [data-theme="dark"] .hero-stat-num { color: #f4f1e6; }
+  [data-theme="dark"] .hero-eyebrow { color: rgba(244,241,230,0.62); }
+  [data-theme="dark"] .hero-eyebrow::before { background: rgba(244,241,230,0.45); }
+  [data-theme="dark"] .hero-stat-label { color: rgba(244,241,230,0.6); }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--canvas);
+    border-bottom: none;
+    transition: background .3s, border-color .3s;
+  }
+  nav {
+    max-width: 1180px; margin: 0 auto;
+    padding: 0 24px; display: flex; gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    display: flex; align-items: center; gap: 4px;
+    padding: 16px 10px;
+    font-family: var(--font-body);
+    font-size: 14px; font-weight: 500;
+    color: var(--body); text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color .15s, border-color .15s;
+  }
+  nav a:hover { color: var(--ink); }
+  /* 도메인별 색은 active일 때만 라인으로만 노출 — 텍스트는 잉크 */
+  nav a.geo, nav a.mac, nav a.cli, nav a.grn, nav a.ai { color: var(--body); }
+  nav a.nav-active { color: var(--ink); font-weight: 600; }
+  nav a.geo.nav-active { border-bottom-color: var(--d-geo); }
+  nav a.mac.nav-active { border-bottom-color: var(--d-mac); }
+  nav a.cli.nav-active { border-bottom-color: var(--d-cli); }
+  nav a.grn.nav-active { border-bottom-color: var(--d-grn); }
+  nav a.ai.nav-active  { border-bottom-color: var(--d-ai);  }
+  nav a:not(.geo):not(.mac):not(.cli):not(.grn):not(.ai).nav-active { border-bottom-color: var(--ink); }
+  [data-theme="dark"] nav a.nav-active { color: var(--on-dark); }
+
+  /* ── LAYOUT ── */
+  main {
+    max-width: 1040px; margin: 0 auto;
+    padding: 56px 28px 24px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+  .main-lower {
+    max-width: 1040px; margin: 0 auto;
+    padding: 48px 28px 56px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filter-bar::before {
+    content: 'Filter'; font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--muted); margin-right: 10px;
+  }
+  .filter-btn {
+    padding: 7px 16px; font-size: 13px; font-weight: 500;
+    font-family: inherit; border-radius: 999px;
+    border: 1px solid var(--hairline);
+    background: var(--canvas); color: var(--body);
+    cursor: pointer; transition: all .15s; white-space: nowrap;
+    display: inline-flex; align-items: center;
+  }
+  .filter-btn:hover { border-color: var(--muted); color: var(--ink); }
+  .filter-btn.active {
+    background: var(--ink); border-color: var(--ink);
+    color: var(--canvas);
+  }
+  /* 활성 시 배경은 잉크, 좌측에 도메인 컬러 도트로만 표시 */
+  .filter-btn.active.f-geo,
+  .filter-btn.active.f-mac,
+  .filter-btn.active.f-cli,
+  .filter-btn.active.f-grn,
+  .filter-btn.active.f-ai { background: var(--ink); border-color: var(--ink); color: var(--canvas); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface-card);
+    border: 1px solid var(--hairline);
+    border-radius: 14px; overflow: hidden;
+    transition: transform .22s ease, box-shadow .22s ease,
+                background .3s, border-color .3s;
+    scroll-margin-top: 80px;
+    position: relative;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(20,20,19,0.06); }
+  .domain-card.hidden { display: none; }
+
+  /* ── EDITORIAL CARD HEADER — 그라디언트 면 제거, 좌측 3px 라인 + 라벨 ── */
+  .card-header {
+    display: flex; align-items: center;
+    padding: 28px 32px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--hairline-soft);
+    background: transparent;
+    color: var(--ink);
+  }
+  .card-header-inner {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .domain-label-kr {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .domain-label-en {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    order: -1; /* English mono label on top */
+  }
+  /* 좌측 3px 라인이 도메인 정체성 — 면이 아니라 선 */
+  .domain-geo .card-header::before,
+  .domain-mac .card-header::before,
+  .domain-cli .card-header::before,
+  .domain-grn .card-header::before,
+  .domain-ai  .card-header::before {
+    content: ''; position: absolute;
+    top: 24px; bottom: 24px; left: 0;
+    width: 3px; border-radius: 0 2px 2px 0;
+  }
+  .domain-geo .card-header::before { background: var(--d-geo); }
+  .domain-mac .card-header::before { background: var(--d-mac); }
+  .domain-cli .card-header::before { background: var(--d-cli); }
+  .domain-grn .card-header::before { background: var(--d-grn); }
+  .domain-ai  .card-header::before { background: var(--d-ai);  }
+  .domain-geo .domain-label-en { color: var(--d-geo); }
+  .domain-mac .domain-label-en { color: var(--d-mac); }
+  .domain-cli .domain-label-en { color: var(--d-cli); }
+  .domain-grn .domain-label-en { color: var(--d-grn); }
+  .domain-ai  .domain-label-en { color: var(--d-ai);  }
+  [data-theme="dark"] .domain-geo .domain-label-en { color: var(--d-geo-dark); }
+  [data-theme="dark"] .domain-mac .domain-label-en { color: var(--d-mac-dark); }
+  [data-theme="dark"] .domain-cli .domain-label-en { color: var(--d-cli-dark); }
+  [data-theme="dark"] .domain-grn .domain-label-en { color: var(--d-grn-dark); }
+  [data-theme="dark"] .domain-ai  .domain-label-en { color: var(--d-ai-dark);  }
+  [data-theme="dark"] .domain-geo .card-header::before { background: var(--d-geo-dark); }
+  [data-theme="dark"] .domain-mac .card-header::before { background: var(--d-mac-dark); }
+  [data-theme="dark"] .domain-cli .card-header::before { background: var(--d-cli-dark); }
+  [data-theme="dark"] .domain-grn .card-header::before { background: var(--d-grn-dark); }
+  [data-theme="dark"] .domain-ai  .card-header::before { background: var(--d-ai-dark);  }
+
+  /* neutral (워치리스트·영상·출처) header */
+  .card-header.neutral { color: var(--ink); }
+  .card-header.neutral::before {
+    content: ''; position: absolute; top: 24px; bottom: 24px; left: 0;
+    width: 3px; background: var(--ink); border-radius: 0 2px 2px 0;
+  }
+  [data-theme="dark"] .card-header.neutral::before { background: var(--on-dark); }
+  [data-theme="dark"] .card-header.neutral .domain-label-kr { color: var(--on-dark); }
+
+  [data-theme="dark"] .domain-label-kr { color: var(--on-dark); }
+
+  /* ── CARD BODY ── */
+  .card-body { padding: 28px 32px 32px; color: var(--body); }
+  .card-body p { margin-bottom: 16px; font-size: 16px; line-height: 1.75; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .card-body strong { color: var(--body-strong); font-weight: 700; }
+  .card-body a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--muted-soft); text-underline-offset: 3px; transition: color .15s; }
+  .card-body a:hover { color: var(--primary); text-decoration-color: var(--primary); }
+  [data-theme="dark"] .card-body a { color: var(--on-dark); text-decoration-color: var(--muted); }
+
+  /* ── STAT SECTION — Display serif numerals ── */
+  .stat-section {
+    padding: 24px 32px 28px;
+    border-top: 1px solid var(--hairline-soft);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 28px;
+    row-gap: 4px;
+    align-items: baseline;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+    grid-column: 2; align-self: end;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 64px; line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+  /* 도메인 색은 통계 숫자에 칠하지 않고, 아래 바에만 노출 */
+  .stat-num.c-geo,
+  .stat-num.c-mac,
+  .stat-num.c-cli,
+  .stat-num.c-grn,
+  .stat-num.c-ai { color: var(--ink); }
+  [data-theme="dark"] .stat-num { color: var(--on-dark); }
+  .stat-desc { font-size: 14px; color: var(--body); grid-column: 2; line-height: 1.5; }
+  .bar-container {
+    grid-column: 1 / -1;
+    height: 2px; background: var(--hairline);
+    border-radius: 1px; overflow: hidden; margin-top: 14px;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 1px; width: 0%;
+    transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bar-fill.c-geo { background: var(--d-geo); }
+  .bar-fill.c-mac { background: var(--d-mac); }
+  .bar-fill.c-cli { background: var(--d-cli); }
+  .bar-fill.c-grn { background: var(--d-grn); }
+  .bar-fill.c-ai  { background: var(--d-ai);  }
+  [data-theme="dark"] .bar-fill.c-geo { background: var(--d-geo-dark); }
+  [data-theme="dark"] .bar-fill.c-mac { background: var(--d-mac-dark); }
+  [data-theme="dark"] .bar-fill.c-cli { background: var(--d-cli-dark); }
+  [data-theme="dark"] .bar-fill.c-grn { background: var(--d-grn-dark); }
+  [data-theme="dark"] .bar-fill.c-ai  { background: var(--d-ai-dark);  }
+
+  /* ── TAGS — 단일 시스템: 긴급(코랄) vs 중립 ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+  .tag {
+    font-size: 12px; font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    color: var(--body);
+    font-family: var(--font-body);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  /* 긴급만 코랄 필 */
+  .tag.breaking {
+    background: var(--primary); color: var(--canvas);
+    border-color: var(--primary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  /* 부상중·진행중은 중립 + 좌측 도트 */
+  .tag.emerging,
+  .tag.ongoing {
+    background: var(--canvas);
+    border-color: var(--hairline);
+    color: var(--body);
+    padding-left: 18px; position: relative;
+  }
+  .tag.emerging::before,
+  .tag.ongoing::before {
+    content: ''; position: absolute;
+    left: 9px; top: 50%; transform: translateY(-50%);
+    width: 5px; height: 5px; border-radius: 50%;
+  }
+  .tag.emerging::before { background: var(--accent-amber); }
+  .tag.ongoing::before  { background: var(--accent-emerald); }
+  [data-theme="dark"] .tag {
+    background: transparent; border-color: var(--hairline);
+    color: var(--body);
+  }
+  [data-theme="dark"] .tag.breaking {
+    background: var(--primary); color: var(--canvas);
+    border-color: var(--primary);
+  }
+
+  /* ── INLINE INTERPRETATION LABEL ── */
+  .label-interp {
+    display: inline;
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    padding: 2px 7px; border-radius: 3px;
+    background: var(--surface-strong);
+    color: var(--body-strong);
+    vertical-align: 2px;
+    margin-right: 6px;
+    letter-spacing: 0.04em;
+  }
+  [data-theme="dark"] .label-interp { background: var(--surface-dark-elev); color: var(--on-dark); }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 26px; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  [data-theme="dark"] .section-title { color: var(--on-dark); border-bottom-color: var(--hairline); }
+
+  /* ── WATCH LIST ── */
+  .watch-timeline {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .watch-item {
+    position: relative;
+    border-radius: 8px; overflow: hidden;
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    transition: border-color .2s, background .2s;
+  }
+  .watch-item:hover { border-color: var(--muted-soft); }
+  /* "신규"·"업데이트" 배경 색 분리 폐지 — 좌측 도트로만 구분 */
+  .watch-item.new,
+  .watch-item.updated { background: var(--canvas); border-color: var(--hairline); }
+
+  .watch-toggle {
+    display: flex; gap: 12px; align-items: center;
+    padding: 14px 18px; cursor: pointer; user-select: none;
+    width: 100%; background: none; border: none;
+    font-family: inherit; text-align: left;
+  }
+  .wi-icon { font-size: 17px; flex-shrink: 0; }
+  .wi-title {
+    font-weight: 500; font-size: 15px; flex: 1;
+    color: var(--ink); line-height: 1.45;
+  }
+  .watch-chevron {
+    font-size: 11px; color: var(--muted);
+    transition: transform .22s; flex-shrink: 0;
+  }
+  .watch-item.open .watch-chevron { transform: rotate(180deg); }
+  .watch-body {
+    display: none; font-size: 14px; color: var(--body);
+    padding: 4px 18px 16px 36px; line-height: 1.7;
+    border-top: 1px solid var(--hairline-soft);
+    background: var(--surface-soft);
+  }
+  .watch-item.open .watch-body { display: block; padding-top: 14px; }
+  [data-theme="dark"] .watch-body { background: var(--surface-soft); }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    padding: 2px 7px; border-radius: 3px;
+    margin-left: 8px; vertical-align: 1px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .badge-new {
+    background: var(--sunlight-gold); color: var(--ink);
+  }
+  .badge-update {
+    background: transparent;
+    border: 1px solid var(--muted-soft);
+    color: var(--muted);
+    padding: 1px 6px;
+  }
+  .badge-break {
+    background: var(--primary); color: var(--canvas);
+  }
+  [data-theme="dark"] .badge-new { background: var(--sunlight-gold); color: var(--surface-dark); }
+  [data-theme="dark"] .badge-update { color: var(--on-dark-soft); border-color: var(--muted); }
+
+  /* ── DIALOGUE SECTION — Monet Pond Afternoon (깊어진 수면) ── */
+  .dialogue-section {
+    background:
+      radial-gradient(ellipse 50% 70% at 88% 25%, rgba(230,169,138,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 8% 80%, rgba(184,168,196,0.10) 0%, transparent 55%),
+      linear-gradient(160deg, var(--pond-shadow) 0%, var(--pond-night) 100%);
+    padding: 96px 0;
+    position: relative; overflow: hidden;
+    scroll-margin-top: 80px;
+    color: #f4f1e6;
+  }
+  .dialogue-section::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.35; pointer-events: none;
+  }
+  .dialogue-glow { display: none; }
+  .dialogue-inner {
+    max-width: 1040px; margin: 0 auto;
+    padding: 0 28px; position: relative; z-index: 1;
+  }
+  .dialogue-heading {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 32px; letter-spacing: -0.02em;
+    color: var(--on-dark); margin-bottom: 40px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .dialogue-heading::before {
+    content: ''; width: 28px; height: 1px;
+    background: var(--primary);
+    flex-shrink: 0;
+  }
+  .dialogue-heading::after { display: none; }
+  .dialogue-heading > svg { display: none; }
+
+  .cross-card {
+    border: 1px solid rgba(244,241,230,0.08);
+    border-radius: 12px;
+    overflow: hidden; margin-bottom: 20px;
+    background: rgba(29,46,38,0.55);
+    backdrop-filter: blur(8px);
+    transition: transform .22s, border-color .22s;
+  }
+  .cross-card:hover { transform: translateY(-2px); border-color: rgba(244,241,230,0.18); }
+  .cross-card:last-child { margin-bottom: 0; }
+
+  .cross-header {
+    display: flex; align-items: center; gap: 20px;
+    padding: 24px 28px 20px;
+    background: transparent;
+    color: #f4f1e6;
+    border-bottom: 1px solid rgba(244,241,230,0.08);
+  }
+  .cross-num {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 48px; line-height: 1;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+  .cross-domain-label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--on-dark-soft);
+    margin-bottom: 8px;
+  }
+  .cross-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--on-dark);
+  }
+  .cross-body { padding: 24px 28px 26px; background: transparent; }
+  .cross-row { margin-bottom: 18px; }
+  .cross-row:last-child { margin-bottom: 0; }
+  .cr-label {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--primary); margin-bottom: 8px;
+  }
+  .cr-text {
+    font-size: 16px; line-height: 1.75;
+    color: var(--on-dark-soft);
+  }
+  .cr-text strong { color: var(--on-dark); font-weight: 600; }
+
+  .domain-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    padding: 1px 8px; border-radius: 3px;
+    margin: 0 2px; vertical-align: 1px;
+    letter-spacing: 0.04em;
+    background: transparent;
+    border: 1px solid currentColor;
+  }
+  .dp-geo { color: var(--d-geo-dark); }
+  .dp-mac { color: var(--d-mac-dark); }
+  .dp-cli { color: var(--d-cli-dark); }
+  .dp-grn { color: var(--d-grn-dark); }
+  .dp-ai  { color: var(--d-ai-dark);  }
+
+  .cross-tags .tag {
+    background: transparent;
+    border-color: var(--surface-dark-elev);
+    color: var(--on-dark-soft);
+  }
+  .cross-tags .tag.breaking {
+    background: var(--primary); color: var(--canvas);
+    border-color: var(--primary);
+  }
+  .cross-tags .tag.emerging,
+  .cross-tags .tag.ongoing {
+    background: transparent;
+    border-color: var(--surface-dark-elev);
+    color: var(--on-dark-soft);
+  }
+
+  /* ── VIDEOS ── */
+  .video-grid { display: flex; flex-direction: column; gap: 8px; }
+  .video-item {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 16px 18px;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--canvas);
+    text-decoration: none; color: inherit;
+    transition: border-color .15s, transform .15s, background .15s;
+  }
+  .video-item:hover {
+    border-color: var(--ink);
+    transform: translateX(2px);
+  }
+  .video-thumb {
+    width: 38px; height: 38px;
+    border-radius: 6px;
+    background: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: var(--canvas);
+  }
+  .video-thumb svg { width: 18px; height: 18px; }
+  [data-theme="dark"] .video-thumb { background: var(--primary); color: var(--canvas); }
+  .video-title {
+    font-size: 15px; font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--ink); line-height: 1.4;
+  }
+  [data-theme="dark"] .video-title { color: var(--on-dark); }
+  .video-meta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .video-rel { font-size: 13px; color: var(--body); margin-top: 6px; line-height: 1.55; }
+  [data-theme="dark"] .video-rel { color: var(--body); }
+  .channel-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    padding: 2px 8px; border-radius: 3px;
+    background: var(--surface-strong); color: var(--body-strong);
+    margin-bottom: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  [data-theme="dark"] .channel-badge { background: var(--surface-dark-elev); color: var(--on-dark-soft); }
+  .video-section-label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  /* ── SOURCES TABLE ── */
+  .source-filter-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .source-filter-row label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  #source-domain-filter {
+    padding: 7px 14px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    background: var(--canvas);
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color .15s;
+  }
+  #source-domain-filter:focus { outline: none; border-color: var(--ink); }
+  #source-count {
+    font-family: var(--font-mono);
+    font-size: 12px; color: var(--muted);
+  }
+  .sources-wrap { overflow-x: auto; margin: 0 -8px; padding: 0 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    text-align: left; padding: 12px 14px;
+    background: transparent;
+    border-bottom: 1px solid var(--ink);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.14em; white-space: nowrap;
+  }
+  [data-theme="dark"] th { color: var(--on-dark); border-bottom-color: var(--on-dark); }
+  td { padding: 14px 14px; border-bottom: 1px solid var(--hairline); vertical-align: top; color: var(--body); }
+  td:nth-child(1), td:nth-child(2), td:nth-child(4), td:nth-child(5) { white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface-soft); }
+  td a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--muted-soft);
+    text-underline-offset: 3px;
+  }
+  td a:hover { color: var(--primary); text-decoration-color: var(--primary); }
+  [data-theme="dark"] td a { color: var(--on-dark); }
+  .domain-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 8px; vertical-align: 1px;
+  }
+  .type-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    padding: 2px 8px; border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .type-news   { background: var(--canvas); border: 1px solid var(--hairline); color: var(--body); }
+  .type-report { background: var(--surface-strong); border: 1px solid var(--hairline); color: var(--body-strong); }
+  [data-theme="dark"] .type-news { background: transparent; border-color: var(--hairline); color: var(--body); }
+  [data-theme="dark"] .type-report { background: var(--surface-strong); border-color: var(--hairline); color: var(--body-strong); }
+  .source-row.hidden { display: none; }
+
+  /* ── FOOTER — Monet Pond Dusk (황혼의 연못) ── */
+  footer {
+    background:
+      radial-gradient(ellipse 45% 60% at 10% 90%, rgba(230,169,138,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 50% at 92% 15%, rgba(184,168,196,0.08) 0%, transparent 55%),
+      linear-gradient(160deg, var(--pond-night) 0%, var(--pond-midnight) 100%);
+    padding: 31px 64px 24px;
+    position: relative; overflow: hidden;
+    color: #f4f1e6;
+  }
+  footer::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.3; pointer-events: none;
+  }
+  .footer-glow { display: none; }
+  .footer-inner {
+    position: relative; z-index: 1;
+    max-width: 1180px; margin: 0 auto;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 36px; letter-spacing: -0.02em;
+    color: var(--on-dark); margin-bottom: 6px;
+  }
+  .footer-date-line {
+    font-family: var(--font-mono);
+    font-size: 12px; color: var(--on-dark-mute);
+    letter-spacing: 0.1em;
+    margin-bottom: 0;
+  }
+  .footer-topics-label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 20px;
+  }
+  .footer-topic {
+    display: flex; align-items: flex-start;
+    gap: 18px; margin-bottom: 14px;
+    max-width: 720px;
+  }
+  .footer-topic-num {
+    font-family: var(--font-display);
+    font-weight: 400; font-style: italic;
+    font-size: 24px; line-height: 1.1;
+    color: var(--primary);
+    flex-shrink: 0; width: 28px;
+  }
+  .footer-topic-text {
+    font-size: 15px; color: var(--on-dark-soft);
+    line-height: 1.6;
+  }
+  .footer-bottom {
+    margin-top: 56px; padding-top: 24px;
+    border-top: 1px solid var(--surface-dark-elev);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--on-dark-mute);
+  }
+
+  /* ── SCROLL FADE-IN ── */
+  .fade-in {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .stagger-1 { transition-delay: .06s; }
+  .stagger-2 { transition-delay: .12s; }
+  .stagger-3 { transition-delay: .18s; }
+  .stagger-4 { transition-delay: .24s; }
+  .stagger-5 { transition-delay: .30s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { padding: 56px 20px 48px; }
+    /* 모바일 전용 — 태양 위치 재조정 (데스크톱 calc가 우측 끝에 붙는 문제 해소) */
+    header::after { right: 30px !important; top: 45px !important; }
+    /* 모바일 전용 — 테마 토글: 우측 하단, 스탯 y 레벨 */
+    #theme-toggle { top: auto; bottom: 64px; right: 16px; transform: none; }
+    header h1 { font-size: 32px; white-space: normal; }
+    .hero-title-row { flex-direction: column; align-items: flex-start; gap: 25px; }
+    .hero-stats { margin-top: 0 !important; gap: 24px; flex-wrap: wrap; }
+    .hero-stat-num { font-size: 36px; }
+    .hero-stat-label { font-size: 10px; }
+    nav { padding: 0 12px; }
+    nav a { padding: 14px 10px; font-size: 13px; }
+    .nav-text { display: none; }
+    main, .main-lower { padding-left: 16px; padding-right: 16px; gap: 24px; }
+    .card-header { padding: 22px 22px 18px; }
+    .domain-label-kr { font-size: 24px; }
+    .card-body { padding: 22px 22px 26px; }
+    .card-body p { font-size: 15px; }
+    .stat-section { padding: 20px 22px 24px; column-gap: 18px; }
+    .stat-num { font-size: 48px; }
+    .dialogue-section { padding: 56px 0; }
+    .dialogue-inner { padding: 0 18px; }
+    .dialogue-heading { font-size: 24px; }
+    .cross-header { padding: 20px 22px 16px; gap: 14px; }
+    .cross-num { font-size: 36px; }
+    .cross-title { font-size: 18px; }
+    .cross-body { padding: 20px 22px 22px; }
+    footer { padding: 28px 20px 36px; }
+    .footer-logo { font-size: 28px; }
+  }
+
+  @media (min-width: 641px) and (max-width: 900px) {
+    header { padding: 44px 32px 40px; }
+    .hero-title-row { flex-direction: column; align-items: flex-start; gap: 30px; }
+    .hero-stats { margin-top: 0 !important; gap: 28px; }
+    .hero-stat-num { font-size: 40px; }
+    main, .main-lower { padding-left: 24px; padding-right: 24px; }
+    footer { padding: 56px 32px 44px; }
+  }
+  /* ──────────────────────────────────────────────────────────────
+     v7 OVERRIDES — Editorial flatten · Monet garden palette
+     카드 박스 제거 · 인라인 편집물 흐름 · 풀-블리드 앵커 밴드
+     ────────────────────────────────────────────────────────────── */
+
+  /* MAIN — 더 넓은 컨텐츠 폭, 카드 간격 대신 두꺼운 패딩 */
+  main {
+    max-width: 920px;
+    padding: 32px 32px 32px;
+    gap: 0;
+  }
+  .main-lower {
+    max-width: 920px;
+    padding: 0 32px 24px;
+    gap: 0;
+  }
+
+  /* CARDS — 박스 완전 제거. 섹션은 hairline + 좌측 도메인 라인으로만 구분 */
+  .card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    padding: 56px 0 56px;
+    border-top: 1px solid var(--hairline);
+    position: relative;
+    transition: none;
+  }
+  .card:first-of-type,
+  .filter-bar + .card { border-top: none; padding-top: 24px; }
+  /* main-lower 첫 번째 카드 상단 padding — 앵커와의 간격 95px 확보 */
+  .main-lower .card:first-of-type { padding-top: 50px; }
+  .card:hover { transform: none; box-shadow: none; }
+  .card-header {
+    padding: 0 0 24px 0;
+    background: transparent;
+    border-bottom: none;
+    color: var(--ink);
+    position: relative;
+  }
+  .card-header-inner {
+    display: flex; flex-direction: column; gap: 8px;
+    padding-left: 18px;
+  }
+  /* 좌측 3px 라인이 도메인 정체성 — 헤더 영역에 정렬 */
+  .domain-geo .card-header::before,
+  .domain-mac .card-header::before,
+  .domain-cli .card-header::before,
+  .domain-grn .card-header::before,
+  .domain-ai  .card-header::before,
+  .card-header.neutral::before {
+    content: ''; position: absolute;
+    top: 4px; bottom: 12px; left: 0;
+    width: 3px; border-radius: 0;
+  }
+  .domain-label-en {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+  .domain-label-kr {
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .card-body {
+    padding: 0 0 0 18px;
+    color: var(--body);
+  }
+  .card-body p { font-size: 17px; line-height: 1.78; margin-bottom: 18px; }
+
+  /* TAGS — 인라인 형태 유지하되 상단 여백 살짝 */
+  .tags { margin-top: 28px; }
+
+  /* STAT SECTION — v7.5: 구분선 제거, 자연스러운 여백으로 구분 */
+  .stat-section {
+    padding: 0 0 0 18px;
+    border-top: none;
+    margin-top: 40px;
+    position: relative;
+  }
+  .stat-section::before { display: none; }
+  .stat-num { font-size: 64px; }
+  .bar-container { margin-top: 14px; }
+
+  /* FILTER BAR — v7.2: 인라인 편집물 흐름에서 불필요 */
+  .filter-bar { display: none !important; }
+
+  /* WATCH LIST — 박스 제거, 인라인 리스트 */
+  .watch-timeline { gap: 0; }
+  .watch-item {
+    border-radius: 0;
+    background: transparent !important;
+    border: none;
+    border-top: 1px solid var(--hairline-soft);
+  }
+  .watch-item:first-child { border-top: 1px solid var(--hairline); }
+  .watch-item:last-child { border-bottom: 1px solid var(--hairline-soft); }
+  .watch-item:hover { border-color: var(--hairline-soft); }
+  .watch-toggle { padding: 18px 4px; }
+  .watch-body { background: transparent; border-top: none; padding: 0 4px 18px 30px; }
+  .watch-item.open .watch-body { padding-top: 0; }
+
+  /* VIDEOS — 박스 제거, 인라인 리스트 */
+  .video-section-label {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 18px;
+    margin-top: 8px;
+  }
+  .video-grid { gap: 0; }
+  .video-item {
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--hairline-soft);
+    padding: 18px 4px;
+  }
+  .video-item:first-child { border-top: 1px solid var(--hairline); }
+  .video-item:hover {
+    border-color: var(--hairline-soft);
+    transform: none;
+    background: var(--surface-soft);
+  }
+
+  /* SOURCES — 박스 제거 */
+  .sources-wrap { margin: 0; padding: 0; }
+  .source-filter-row { padding-left: 0; }
+
+  /* DIALOGUE — cross-cards 유지하되 좀 더 자연스럽게 */
+  .dialogue-heading { display: none; } /* 위의 anchor 밴드가 대신 역할 */
+
+  /* ── DIALOGUE SECTION FLATTEN (v7.1) — 캔버스 인라인 + 그린 액센트 ── */
+  .dialogue-section {
+    background: var(--canvas) !important;
+    padding: 0 !important;
+    color: var(--ink);
+  }
+  .dialogue-section::before,
+  .dialogue-glow { display: none !important; }
+  .dialogue-inner {
+    max-width: 920px;
+    padding: 32px 32px 56px;
+  }
+  /* cross-card → 도메인 섹션과 같은 인라인 편집물 (그린 좌측 라인) */
+  .cross-card {
+    background: transparent !important;
+    border: none;
+    border-top: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    padding: 48px 0 8px;
+    margin-bottom: 0;
+    overflow: visible;
+    position: relative;
+  }
+  /* 카드 사이에만 hairline 라인 (첫 카드 위에는 없음) */
+  .cross-card + .cross-card { border-top: 1px solid var(--hairline); }
+  .cross-card:first-of-type { border-top: none; padding-top: 32px; }
+  /* 첫 카드(dialogue-heading 직후): 라인 제거로 생긴 빈공간 1/2 축소 */
+  .dialogue-heading + .cross-card { padding-top: 8px; }
+  .dialogue-heading + .cross-card::before { top: 12px; }
+  .cross-card:hover { transform: none; border-color: var(--hairline); }
+  .cross-card::before {
+    content: ''; position: absolute;
+    top: 52px; left: 0;
+    width: 3px; height: 50px;
+    background: var(--d-cli); /* Pond Deep · 그린 액센트 유지 */
+    border-radius: 0;
+  }
+  .cross-card:first-of-type::before { top: 36px; }
+  .cross-header {
+    padding: 0 0 22px 22px;
+    background: transparent !important;
+    border-bottom: none;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .cross-num {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--reflect-sky); /* v10 — Reflected Sky Blue */
+    padding-top: 4px;
+  }
+  .cross-domain-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .cross-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 26px; line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .cross-body {
+    padding: 0 0 0 22px;
+    background: transparent !important;
+  }
+  .cross-row { margin-bottom: 20px; }
+  .cr-label {
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--d-cli); /* 라벨도 그린 액센트 */
+    margin-bottom: 8px;
+  }
+  .cr-text {
+    font-size: 17px; line-height: 1.78;
+    color: var(--body);
+  }
+  .cr-text strong { color: var(--body-strong); font-weight: 700; }
+  /* domain pill — 라이트 모드에 맞게 재조정 (작고 외곽선만) */
+  .cross-body .domain-pill {
+    background: transparent;
+    border: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 1px 7px;
+    letter-spacing: 0.04em;
+  }
+  .cross-body .dp-geo { color: var(--d-geo); }
+  .cross-body .dp-mac { color: var(--d-mac); }
+  .cross-body .dp-cli { color: var(--d-cli); }
+  .cross-body .dp-grn { color: var(--d-grn); }
+  .cross-body .dp-ai  { color: var(--d-ai);  }
+  /* cross tags — 도메인 섹션 태그와 동일 시스템 */
+  .cross-tags .tag {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    color: var(--body);
+  }
+  .cross-tags .tag.breaking {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--canvas);
+  }
+  .cross-tags .tag.emerging,
+  .cross-tags .tag.ongoing {
+    background: var(--canvas);
+    border-color: var(--hairline);
+    color: var(--body);
+  }
+  /* dark mode adjustments */
+  [data-theme="dark"] .cross-card + .cross-card { border-top-color: var(--hairline); }
+  [data-theme="dark"] .cross-card::before { background: var(--d-cli-dark); }
+  [data-theme="dark"] .cross-num { color: var(--periwinkle-mist); }
+  [data-theme="dark"] .cr-label { color: var(--d-cli-dark); }
+  [data-theme="dark"] .cross-title { color: var(--on-dark); }
+  [data-theme="dark"] .cross-body .dp-geo { color: var(--d-geo-dark); }
+  [data-theme="dark"] .cross-body .dp-mac { color: var(--d-mac-dark); }
+  [data-theme="dark"] .cross-body .dp-cli { color: var(--d-cli-dark); }
+  [data-theme="dark"] .cross-body .dp-grn { color: var(--d-grn-dark); }
+  [data-theme="dark"] .cross-body .dp-ai  { color: var(--d-ai-dark);  }
+  [data-theme="dark"] .cross-tags .tag {
+    background: transparent;
+    border-color: var(--hairline);
+    color: var(--body);
+  }
+
+  /* ─── FULL-BLEED SECTION ANCHOR BANDS (모네 풀-블리드 챕터 표지 · v7.6 추가 축소) ─── */
+  .section-anchor {
+    position: relative;
+    padding: 32px 64px;
+    overflow: hidden;
+    color: var(--ink);
+  }
+  .anchor-inner {
+    position: relative; z-index: 2;
+    max-width: 1180px; margin: 0 auto;
+  }
+  .anchor-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(20,20,19,0.65);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .anchor-eyebrow::before {
+    content: ''; width: 28px; height: 1px;
+    background: rgba(20,20,19,0.45);
+  }
+  .anchor-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 22ch;
+  }
+  .anchor-title em {
+    font-style: italic;
+    color: var(--pond-shadow);
+  }
+  .section-anchor::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='11'/><feColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
+  }
+  /* Anchor A · Pre-Dialogue (Lily Mist → Pond Sage · 아침 정원 톤) */
+  .anchor-dialogue {
+    background:
+      radial-gradient(ellipse 42% 60% at 84% 28%, rgba(230,169,138,0.24) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 14% 70%, rgba(212,179,128,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 55% at 90% 90%, rgba(184,168,196,0.18) 0%, transparent 55%),
+      linear-gradient(135deg, var(--lily-mist) 0%, var(--pond-sage) 60%, var(--pond-deep) 100%);
+  }
+  /* Anchor B · Pre-Sources (Anchor A와 동일한 아침 정원 톤으로 통일) */
+  .anchor-sources {
+    background:
+      radial-gradient(ellipse 42% 60% at 84% 28%, rgba(230,169,138,0.24) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 14% 70%, rgba(212,179,128,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 55% at 90% 90%, rgba(184,168,196,0.18) 0%, transparent 55%),
+      linear-gradient(135deg, var(--lily-mist) 0%, var(--pond-sage) 60%, var(--pond-deep) 100%);
+  }
+  /* 다크 모드: 두 앵커 모두 깊은 정원 톤 + 크림 글씨 */
+  [data-theme="dark"] .section-anchor { color: #f4f1e6; }
+  [data-theme="dark"] .anchor-eyebrow { color: rgba(244,241,230,0.62); }
+  [data-theme="dark"] .anchor-eyebrow::before { background: rgba(244,241,230,0.45); }
+  [data-theme="dark"] .anchor-title { color: #f4f1e6; }
+  [data-theme="dark"] .anchor-title em { color: var(--lily-pink); }
+  [data-theme="dark"] .anchor-dialogue {
+    background:
+      radial-gradient(ellipse 45% 60% at 82% 25%, rgba(230,169,138,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 18% 80%, rgba(184,168,196,0.18) 0%, transparent 60%),
+      linear-gradient(135deg, var(--pond-shadow) 0%, var(--pond-night) 100%);
+  }
+  [data-theme="dark"] .anchor-sources {
+    background:
+      radial-gradient(ellipse 45% 60% at 82% 25%, rgba(230,169,138,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 18% 80%, rgba(184,168,196,0.18) 0%, transparent 60%),
+      linear-gradient(135deg, var(--pond-shadow) 0%, var(--pond-night) 100%);
+  }
+  [data-theme="dark"] .section-anchor::before {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='11'/><feColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.85 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* Dark mode tweaks for editorial sections */
+  [data-theme="dark"] .card { border-top-color: var(--hairline); }
+  [data-theme="dark"] .watch-item { border-top-color: var(--hairline); }
+  [data-theme="dark"] .video-item:hover { background: var(--surface-soft); }
+  [data-theme="dark"] .filter-btn { color: var(--muted); }
+  [data-theme="dark"] .filter-btn.active { color: var(--on-dark); }
+  [data-theme="dark"] .filter-btn:hover { color: var(--on-dark); }
+
+  /* RESPONSIVE — small screen */
+  @media (max-width: 640px) {
+    main, .main-lower { padding-left: 20px; padding-right: 20px; max-width: 100%; }
+    .card { padding: 40px 0 40px; }
+    .card-header-inner, .card-body, .stat-section { padding-left: 14px; }
+    .domain-label-kr { font-size: 26px; }
+    .card-body p { font-size: 16px; }
+    .stat-num { font-size: 48px; }
+    .section-anchor { padding: 64px 22px; }
+    .anchor-title { font-size: 30px; }
+    .filter-bar::before { width: 100%; margin-bottom: 8px; }
+    .filter-btn { font-size: 14px; }
+    .filter-btn::after { margin: 0 10px; }
+  }
+  /* TYPE BADGES (v7.2) — news와 report 동일 스타일로 통일 */
+  .type-news, .type-report {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    color: var(--body);
+  }
+  [data-theme="dark"] .type-news,
+  [data-theme="dark"] .type-report {
+    background: transparent;
+    border-color: var(--hairline);
+    color: var(--body);
+  }
+
+  /* FOOTER TEXT (v7.2) — 깊은 정원 위 대비 보완 */
+  footer .footer-date-line { color: #a8c0b5; margin-bottom: 0; }
+  footer .footer-topic { margin-bottom: 10px; }
+  footer .footer-topic-text { color: #d8e2db; }
+
+  /* v8.x — 세부 섹션 타이틀 앞 좌측 세로줄 제거 (도메인 5개 + 워치/영상/출처) */
+  .domain-geo .card-header::before,
+  .domain-mac .card-header::before,
+  .domain-cli .card-header::before,
+  .domain-grn .card-header::before,
+  .domain-ai  .card-header::before,
+  .card-header.neutral::before { display: none !important; }
+  /* 라인 제거에 따라 좌측 들여쓰기 보정 */
+  .card-header-inner,
+  .card-body,
+  .stat-section { padding-left: 0 !important; }
+
+  /* v8.x — Cross-card(다이얼로그 토픽) 좌측 그린 세로줄도 제거 + 들여쓰기 보정 */
+  .cross-card::before,
+  .dialogue-heading + .cross-card::before { display: none !important; }
+  .cross-header { padding-left: 0 !important; }
+  .cross-body   { padding-left: 0 !important; }
+
+  /* ────────────────────────────────────────────────────────────────
+     v9 — 인상주의 구분선 (모네 미학) · Feathered + Tone Shift
+     큰 구분 = 좌우 끝에서 사라지는 페더 그라디언트
+     리스트 구분 = 선 제거 + 미묘한 zebra 톤 시프트
+     ──────────────────────────────────────────────────────────────── */
+
+  /* === Option A: Feathered gradient borders (큰 섹션 구분) === */
+  .card { border-top: none !important; }
+  .card:not(:first-of-type):not(.filter-bar + .card) {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--hairline) 18%,
+      var(--hairline) 82%,
+      transparent 100%
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+  /* 더 안전한 매칭 — :first-of-type 셀렉터 한계 우회 */
+  .filter-bar + .card { background-image: none !important; }
+
+  /* 다이얼로그 cross-card 사이 페더 */
+  .cross-card + .cross-card {
+    border-top: none !important;
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--hairline) 18%,
+      var(--hairline) 82%,
+      transparent 100%
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  /* === Option B: Tone-shift zebra (작은 리스트 항목) === */
+
+  /* WATCH LIST — 선 모두 제거, 미묘한 zebra */
+  .watch-item {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 6px;
+  }
+  .watch-item:nth-child(even) {
+    background: rgba(20, 20, 19, 0.020) !important;
+  }
+  [data-theme="dark"] .watch-item:nth-child(even) {
+    background: rgba(244, 241, 230, 0.022) !important;
+  }
+  .watch-item:hover { box-shadow: none; }
+
+  /* VIDEOS — 선 모두 제거, 미묘한 zebra */
+  .video-item {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 6px;
+  }
+  .video-grid .video-item:nth-child(even) {
+    background: rgba(20, 20, 19, 0.020) !important;
+  }
+  [data-theme="dark"] .video-grid .video-item:nth-child(even) {
+    background: rgba(244, 241, 230, 0.022) !important;
+  }
+  .video-item:hover {
+    background: rgba(20, 20, 19, 0.035) !important;
+    transform: none;
+  }
+  [data-theme="dark"] .video-item:hover {
+    background: rgba(244, 241, 230, 0.04) !important;
+  }
+
+  /* SOURCES TABLE — 행 구분선 제거 + zebra */
+  table td { border-bottom: none !important; }
+  .sources-wrap tbody tr:nth-child(even) td {
+    background: rgba(20, 20, 19, 0.020);
+  }
+  [data-theme="dark"] .sources-wrap tbody tr:nth-child(even) td {
+    background: rgba(244, 241, 230, 0.022);
+  }
+  .sources-wrap tbody tr:hover td {
+    background: rgba(20, 20, 19, 0.045);
+  }
+  [data-theme="dark"] .sources-wrap tbody tr:hover td {
+    background: rgba(244, 241, 230, 0.05);
+  }
+
+  /* 출처 테이블 header line은 페더로 유지 (강조감) */
+  table th {
+    border-bottom: none !important;
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--ink) 18%,
+      var(--ink) 82%,
+      transparent 100%
+    ) !important;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+  }
+  [data-theme="dark"] table th {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--on-dark) 18%,
+      var(--on-dark) 82%,
+      transparent 100%
+    ) !important;
+  }
+
+  /* 비디오 섹션 라벨 — 페더 (영상 추천 구분) */
+  .video-section-label {
+    border-bottom: none !important;
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      var(--hairline) 0%,
+      var(--hairline) 60%,
+      transparent 100%
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    padding-bottom: 10px;
+  }
+
+  /* DARK MODE — 본문 weight 500으로 한글 stroke 강화 (가독성 보강) */
+  [data-theme="dark"] .card-body p,
+  [data-theme="dark"] .watch-body,
+  [data-theme="dark"] .cr-text,
+  [data-theme="dark"] .video-rel,
+  [data-theme="dark"] td { font-weight: 500; }
+
+  /* ─────────────────────────────────────────────────────────────
+     v8 — Atmospheric transitions (라이트·다크 양 모드 공통)
+     섹션 경계가 캔버스 톤(크림 / 미드나잇 폰드)으로 부드럽게 풀림
+     ───────────────────────────────────────────────────────────── */
+  header {
+    box-shadow: inset 0 -7px 6px -4px var(--canvas);
+  }
+  .section-anchor {
+    box-shadow:
+      inset 0 6px 5px -3px var(--canvas),
+      inset 0 -6px 5px -3px var(--canvas);
+  }
+  footer {
+    box-shadow: inset 0 7px 6px -4px var(--canvas);
+  }
+  /* 앵커 eyebrow 앞 가로 막대 제거 — 텍스트가 왼쪽 끝에서 시작, 국문 타이틀과 정렬 */
+  .anchor-eyebrow::before { display: none; }
+  .anchor-eyebrow {
+    display: block;
+    gap: 0;
+    padding-left: 4px; /* mono 폰트 좌측 베어링 보정으로 국문 타이틀과 시각 정렬 */
+  }
+
+  /* v9 — 다크모드 본문 텍스트: Sea Pearl (모네 수면의 빛) — v10 밝게 조정 */
+  [data-theme="dark"] { --body: #f4f8f4; }
+
+  /* v10 — 영문 서브타이틀: 라이트/다크 모두 pond-cobalt 통일 */
+  .anchor-eyebrow,
+  .domain-label-en {
+    color: var(--pond-cobalt) !important;
+  }
+  /* 다크 모드에서는 밝은 페리윈클로 시프트 (콘트라스트 확보) */
+  [data-theme="dark"] .anchor-eyebrow,
+  [data-theme="dark"] .domain-label-en {
+    color: var(--periwinkle-mist) !important;
+  }
+  /* 히어로 eyebrow는 히어로 텍스트 톤(pond-midnight)과 통일 */
+  .hero-eyebrow { color: var(--pond-midnight) !important; }
+  [data-theme="dark"] .hero-eyebrow { color: #f4f1e6 !important; }
+  .hero-eyebrow { margin-top: 0; margin-left: 1ch; }
+  /* eyebrow ::before 디바이더 라인도 같은 블루로 */
+  .hero-eyebrow::before {
+    background: var(--reflect-sky) !important;
+    opacity: 0.5;
+  }
+  [data-theme="dark"] .hero-eyebrow::before {
+    background: var(--periwinkle-mist) !important;
+  }
+
+  /* v10 — 출처 테이블 도메인 칼럼 불릿 도트 제거 */
+  .sources-wrap .domain-dot { display: none !important; }
+
+  /* v10 — 메인 도메인 카드 섹션 & Voices 섹션 하단 여백 축소 */
+  main { padding-bottom: 16px; }
+  main > .card:last-of-type { padding-bottom: 28px; }
+  .voices-section { padding-bottom: 12px; }
+  .voices-section .voice-item:last-of-type { padding-bottom: 8px; }
+
+  /* Voices 섹션 — 카드 간 구분선 없음 */
+  .voice-item { border-top: none !important; background-image: none !important; }
+  .voice-item + .voice-item { background-image: none !important; }
+
+  /* ─── VOICES OF THE WEEK · 이 사람의 생각 (다이얼로그와 추천 영상 사이) ─── */
+  /* Anchor C · Pre-Voices — 다이얼로그/소스 앵커와 동일한 모네 정원 톤 */
+  .anchor-voices {
+    background:
+      radial-gradient(ellipse 42% 60% at 84% 28%, rgba(230,169,138,0.24) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 14% 70%, rgba(212,179,128,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 55% at 90% 90%, rgba(184,168,196,0.18) 0%, transparent 55%),
+      linear-gradient(135deg, var(--lily-mist) 0%, var(--pond-sage) 60%, var(--pond-deep) 100%);
+  }
+  [data-theme="dark"] .anchor-voices {
+    background:
+      radial-gradient(ellipse 45% 60% at 82% 25%, rgba(230,169,138,0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 38% 50% at 18% 80%, rgba(184,168,196,0.18) 0%, transparent 60%),
+      linear-gradient(135deg, var(--pond-shadow) 0%, var(--pond-night) 100%);
+  }
+
+  /* Voices 컨테이너 — dialogue-inner와 동일한 폭/여백 */
+  .voices-section {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 32px 56px;
+    background: var(--canvas);
+    color: var(--ink);
+  }
+
+  .voice-item {
+    padding: 32px 0;
+    border-top: none;
+    position: relative;
+  }
+  .voice-item:first-child {
+    padding-top: 8px;
+  }
+
+  .voice-header {
+    padding: 0 0 22px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  /* 대형 이탤릭 숫자 — dialogue cross-num과 동일 */
+  .voice-num {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--reflect-sky); /* v10 — Reflected Sky Blue */
+    padding-top: 4px;
+    flex-shrink: 0;
+  }
+  [data-theme="dark"] .voice-num { color: var(--periwinkle-mist); }
+  /* 우측 메타 스택 — 다이얼로그 cross-header와 동일한 간격 체계 */
+  .voice-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .voice-role-row {
+    display: flex;
+    align-items: baseline;
+    gap: 2ch;
+    flex-wrap: wrap;
+    margin-bottom: 8px; /* cross-domain-label과 동일 */
+  }
+  /* 국내/해외 배지 — 직책 우측에 배치 */
+  .voice-origin {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 3px;
+    line-height: 1.2;
+  }
+  .voice-origin.intl {
+    border: 1px solid var(--d-geo);
+    color: var(--d-geo);
+    background: transparent;
+  }
+  .voice-origin.dom {
+    border: 1px solid var(--accent-emerald);
+    color: var(--accent-emerald);
+    background: transparent;
+  }
+  [data-theme="dark"] .voice-origin.intl { color: var(--d-geo); border-color: var(--d-geo); }
+  [data-theme="dark"] .voice-origin.dom  { color: #6EE7B7; border-color: #6EE7B7; }
+
+  .voice-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 30px; line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  [data-theme="dark"] .voice-name { color: #f4f1e6; }
+  .voice-role {
+    font-family: var(--font-body);
+    font-size: 14px; font-weight: 400;
+    color: var(--muted);
+    letter-spacing: -0.01em;
+  }
+
+  .voice-body {
+    padding: 0;
+    color: var(--body);
+  }
+  .voice-body p {
+    font-size: 17px; line-height: 1.78;
+    margin-bottom: 18px;
+  }
+  .voice-body p:last-of-type { margin-bottom: 0; }
+  .voice-body strong { color: var(--body-strong); font-weight: 700; }
+  .voice-body a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--muted-soft);
+    text-underline-offset: 3px;
+    transition: color .15s;
+  }
+  .voice-body a:hover { color: var(--primary); text-decoration-color: var(--primary); }
+  [data-theme="dark"] .voice-body a { color: var(--on-dark); text-decoration-color: var(--muted); }
+
+  /* 인용 블록 */
+  .voice-body .voice-quote {
+    margin: 20px 0;
+    padding: 16px 22px;
+    border-left: 3px solid var(--hairline);
+    background: var(--surface-soft);
+    border-radius: 0 6px 6px 0;
+  }
+  .voice-body .voice-quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--body-strong);
+    margin-bottom: 0;
+  }
+  .voice-quote-source {
+    font-family: var(--font-mono);
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-top: 10px;
+  }
+  [data-theme="dark"] .voice-body .voice-quote {
+    background: var(--surface-card);
+    border-left-color: var(--hairline);
+  }
+
+  /* 반응형 */
+  @media (max-width: 640px) {
+    .voices-section { padding: 24px 18px 48px; }
+    .voice-item { padding: 26px 0; }
+    .voice-item:first-child { padding-top: 4px; }
+    .voice-header { padding: 0 0 16px 0; gap: 14px; }
+    .voice-body   { padding: 0; }
+    .voice-num    { font-size: 36px; }
+    .voice-name { font-size: 26px; }
+    .voice-body p { font-size: 16px; }
+    .voice-body .voice-quote p { font-size: 17px; }
+  }
+
+  /* ══════════════════════════════════════════════════
+     EVENTS — Where the Conversation Is (전용 스타일만)
+     기존 시스템(section-anchor, anchor-eyebrow, fade-in 등) 재사용
+     ══════════════════════════════════════════════════ */
+
+  /* ══ EVENTS SECTION ══ */
+  .events-section { padding: 0 32px 36px; max-width: 920px; margin: 0 auto; }
+
+  /* ── 행사 아이템 (아코디언) ── */
+  .event-item {
+    border-top: 1px solid var(--hairline);
+  }
+  .event-item:first-child { border-top: none; }
+
+  /* 클릭 가능한 요약 헤더 */
+  .event-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 35px 0;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+  }
+  .event-summary::-webkit-details-marker { display: none; }
+  .event-summary:hover .event-name { color: var(--primary); }
+  [data-theme="dark"] .event-summary:hover .event-name { color: var(--primary); }
+
+  /* 좌측: 메타 + 제목 + 호스트 */
+  .event-summary-left { flex: 1; min-width: 0; }
+
+  /* 메타 행 — 상태 배지, 날짜, 장소, 별표 */
+  .event-meta {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+
+  /* 상태 배지 */
+  .event-status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 3px;
+  }
+  .event-status.live {
+    background: var(--primary-soft); border: 1px solid var(--primary); color: var(--primary);
+  }
+  .event-status.live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--primary); display: inline-block;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+  .event-status.upcoming {
+    background: transparent; border: 1px solid var(--hairline); color: var(--muted);
+  }
+  [data-theme="dark"] .event-status.live { background: rgba(200,77,77,0.15); }
+  [data-theme="dark"] .event-status.upcoming { border-color: var(--hairline); color: var(--muted); }
+
+  /* 참석 권고 등급 — 텍스트와 수직 중앙 정렬 */
+  .event-rating {
+    display: inline-flex; gap: 1px;
+    vertical-align: middle;
+    line-height: 1;
+    position: relative; top: -3px; /* 두 클릭 위 */
+  }
+  .event-rating .star { font-size: 22px; color: var(--sunlight-gold); line-height: 1; }
+  .event-rating .star.dim { color: var(--hairline); }
+
+  /* 행사명 */
+  .event-name {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 26px; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink);
+    margin-bottom: 3px;
+    transition: color .15s;
+  }
+  [data-theme="dark"] .event-name { color: #f4f1e6; }
+
+  .event-host {
+    font-family: var(--font-body); font-size: 13px; color: var(--muted); margin-top: 2px;
+  }
+
+  /* 우측: 화살표 토글 */
+  .event-chevron {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    transition: transform .28s ease, color .15s;
+  }
+  .event-chevron svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  details[open] .event-chevron { transform: rotate(180deg); color: var(--ink); }
+  [data-theme="dark"] details[open] .event-chevron { color: var(--body); }
+
+  /* ── 펼침 상세 영역 ── */
+  .event-detail {
+    padding: 0 0 36px 0;
+    animation: slideDown .22s ease;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 불릿 리스트 */
+  .event-bullets {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column;
+    border-top: 1px solid var(--hairline-soft);
+  }
+  .event-bullets li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hairline-soft);
+    font-size: 15px; line-height: 1.65;
+    align-items: baseline;
+  }
+  .event-bullets li:last-child { border-bottom: none; }
+  .bullet-label {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); padding-top: 2px; white-space: nowrap;
+  }
+  .bullet-value { color: var(--body); }
+  .bullet-value strong { color: var(--body-strong); font-weight: 700; }
+  .bullet-value a {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--muted-soft); text-underline-offset: 3px; transition: color .15s;
+  }
+  .bullet-value a:hover { color: var(--primary); text-decoration-color: var(--primary); }
+  [data-theme="dark"] .event-bullets { border-top-color: var(--hairline); }
+  [data-theme="dark"] .event-bullets li { border-bottom-color: var(--hairline); }
+  [data-theme="dark"] .bullet-value a { color: #f4f1e6; text-decoration-color: var(--muted); }
+
+  /* 네트워킹 인사이트 박스 */
+  .event-insight {
+    margin: 16px 0 0; padding: 14px 20px;
+    background: var(--surface-soft);
+    border-left: 2px solid var(--hairline);
+    border-radius: 0 6px 6px 0;
+  }
+  .event-insight-label {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent-emerald); margin-bottom: 8px;
+  }
+  .event-insight p {
+    font-size: 15px; line-height: 1.72; color: var(--body); margin: 0;
+  }
+  [data-theme="dark"] .event-insight { background: var(--surface-card); }
+  [data-theme="dark"] .event-insight-label { color: #6EE7B7; }
+
+  /* 도메인 태그 */
+  .tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .event-tag {
+    display: inline-flex; align-items: center;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 999px;
+    border: 1px solid var(--hairline); background: var(--canvas); color: var(--body);
+    letter-spacing: 0.04em; white-space: nowrap;
+  }
+  .event-tag.d-geo { color: var(--d-geo); border-color: var(--d-geo); }
+  .event-tag.d-mac { color: var(--d-mac); border-color: var(--d-mac); }
+  .event-tag.d-cli { color: var(--d-cli); border-color: var(--d-cli); }
+  .event-tag.d-grn { color: var(--d-grn); border-color: var(--d-grn); }
+  .event-tag.d-ai  { color: var(--d-ai);  border-color: var(--d-ai);  }
+  [data-theme="dark"] .event-tag { background: transparent; border-color: var(--hairline); color: var(--body); }
+  [data-theme="dark"] .event-tag.d-geo { color: var(--d-geo); border-color: var(--d-geo); }
+  [data-theme="dark"] .event-tag.d-mac { color: var(--d-mac); border-color: var(--d-mac); }
+  [data-theme="dark"] .event-tag.d-cli { color: var(--d-cli); border-color: var(--d-cli); }
+  [data-theme="dark"] .event-tag.d-grn { color: var(--d-grn); border-color: var(--d-grn); }
+  [data-theme="dark"] .event-tag.d-ai  { color: var(--d-ai);  border-color: var(--d-ai);  }
+
+  /* .fade-in, .stagger-* — 메인 파일 시스템 재사용 */
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .section-anchor { padding: 28px 20px; }
+    .events-section { padding: 0 16px 28px; }
+    .event-name { font-size: 20px; }
+    .event-bullets li { grid-template-columns: 82px 1fr; gap: 0 10px; font-size: 14px; }
+    .event-rating .star { font-size: 18px; }
+    .event-summary { padding: 22px 0; }
+  }
+  @media (min-width: 641px) and (max-width: 900px) {
+    .section-anchor { padding: 28px 32px; }
+    .events-section { padding: 0 24px 32px; }
+  }
+
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ── HERO HEADER (①) ── -->
+<header>
+  <button id="theme-toggle" onclick="toggleTheme()" title="다크/라이트 모드 전환" aria-label="테마 전환">
+    <span id="theme-icon" aria-hidden="true"></span>
+  </button>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-glow-3"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">2026-05-18</div>
+    <div class="hero-title-row">
+      <div class="hero-titles">
+        <h1>Weekly Global Impression</h1>
+        <div class="hero-subtitle-kr">생각하는 사람의 더 나은 결정을 위하여</div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num s-blue">5</span>
+          <span class="hero-stat-label">도메인 조사</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num s-purple">24</span>
+          <span class="hero-stat-label">출처</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num s-red">7</span>
+          <span class="hero-stat-label">추천 영상</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num s-green">2</span>
+          <span class="hero-stat-label">다이얼로그 주제</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num s-amber">3</span>
+          <span class="hero-stat-label">이 사람의 생각</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAV (⑨) ── -->
+<div class="nav-wrap">
+<nav id="main-nav">
+
+  <a href="#geo"     class="geo"  data-section="geo"><svg class="lucide nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg><span class="nav-text"> 지정학</span></a>
+  <a href="#mac"     class="mac"  data-section="mac"><svg class="lucide nav-icon" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span class="nav-text"> 거시경제</span></a>
+  <a href="#ai"      class="ai"   data-section="ai" ><svg class="lucide nav-icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg><span class="nav-text"> AI &amp; 기술</span></a>
+  <a href="#cli"     class="cli"  data-section="cli"><svg class="lucide nav-icon" viewBox="0 0 24 24"><path d="M12 9a4 4 0 0 0-2 7.5"/><path d="M12 3v2"/><path d="m6.6 18.4-1.4 1.4"/><path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/><path d="M4 13H2"/><path d="M6.34 7.34 4.93 5.93"/></svg><span class="nav-text"> 기후변화</span></a>
+  <a href="#grn"     class="grn"  data-section="grn"><svg class="lucide nav-icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c.5 2.74-.36 6.92-3.2 9.94"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg><span class="nav-text"> 녹색성장</span></a>
+  <a href="#watch"               data-section="watch"><svg class="lucide nav-icon" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="nav-text"> 워치리스트</span></a>
+  <a href="#dialogue"            data-section="dialogue"><svg class="lucide nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span class="nav-text"> 다이얼로그 주제</span></a>
+  <a href="#voices"              data-section="voices"><svg class="lucide nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg><span class="nav-text"> 이 사람의 생각</span></a>
+  <a href="#events" data-section="events"><svg class="lucide nav-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="nav-text"> 주요 행사</span></a>
+  <a href="#videos"              data-section="videos"><svg class="lucide nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg><span class="nav-text"> 추천 영상</span></a>
+  <a href="#sources"             data-section="sources"><svg class="lucide nav-icon" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg><span class="nav-text"> 출처</span></a>
+</nav>
+</div>
+
+<main>
+
+  <!-- 도메인 필터 바 (⑤ 보완) -->
+  <div class="filter-bar fade-in">
+    <button class="filter-btn f-all active" data-filter="all">전체 보기</button>
+    <button class="filter-btn f-geo" data-filter="geo"><svg class="lucide lucide-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/><path d="M7 3.34V5a3 3 0 0 0 3 3"/><path d="M11 21.95V18a2 2 0 0 0-2-2H2.05"/><path d="M2 12h20"/></svg> 지정학</button>
+    <button class="filter-btn f-mac" data-filter="mac"><svg class="lucide lucide-sm" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> 거시경제</button>
+    <button class="filter-btn f-cli" data-filter="cli"><svg class="lucide lucide-sm" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg> 기후변화</button>
+    <button class="filter-btn f-grn" data-filter="grn"><svg class="lucide lucide-sm" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96c.5 2.74-.36 6.92-3.2 9.94"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg> 녹색성장</button>
+    <button class="filter-btn f-ai"  data-filter="ai" ><svg class="lucide lucide-sm" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg> AI &amp; 기술</button>
+  </div>
+
+  <!-- ─── 지정학 ─── -->
+  <div class="card domain-geo domain-card fade-in" id="geo" data-domain="geo">
+    <div class="card-header">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">지정학</div>
+        <div class="domain-label-en">Geopolitics</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        트럼프 대통령이 5월 14~15일 베이징을 방문해 시진핑 주석과 정상회담을 갖고, 양측은 향후 3년간 <strong>"전략적 안정" 프레임워크</strong>에 합의했다고 발표했다
+        (<a href="https://www.cnbc.com/2026/05/15/trump-xi-summit-the-3-big-takeaways-from-historic-meeting-in-beijing.html" target="_blank">CNBC, 2026-05-15</a>;
+        <a href="https://www.cbsnews.com/news/trump-wraps-up-visit-with-xi-in-china/" target="_blank">CBS News, 2026-05-15</a>).
+      </p>
+      <p>
+        미국은 농산물 연간 $170억 구매 보장과 보잉 200대 판매에 합의했으나, 양측은 합의 내용에 대해 엇갈린 해석을 내놓고 있어 실질적 성과의 지속성은 불투명하다
+        (<a href="https://www.aljazeera.com/news/2026/5/15/trump-xi-summit-china-us-disagree-on-what-they-agreed-on" target="_blank">Al Jazeera, 2026-05-15</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석 · CNBC 2026</span>
+        시 주석이 타이완 문제 오판 시 미중 관계의 "중대 위기"를 경고한 반면, 젠슨 황(Nvidia CEO)과 팀 쿡(Apple CEO)이 수행단에 포함된 것은 이번 정상회담이 무역을 넘어 <strong>기술 지정학의 협상 공간</strong>으로 기능했음을 시사한다.
+      </p>
+      <p>
+        한편 BRICS+는 구매력평가(PPP) 기준 세계 GDP의 약 40%를 차지하며 <strong>다중 정렬(multi-alignment) 전략</strong>을 가속화하고 있고, 중견국들은 이념적 진영보다 에너지 안보·인프라·기술 접근을 기준으로 외교적 행보를 결정하고 있다
+        (<a href="https://moderndiplomacy.eu/2026/05/14/global-south-2-0-why-emerging-powers-are-rejecting-western-alignment/" target="_blank">Modern Diplomacy, 2026-05-14</a>).
+      </p>
+      <div class="tags">
+        <span class="tag breaking">#긴급</span>
+        <span class="tag">#미국</span><span class="tag">#중국</span><span class="tag">#글로벌사우스</span>
+        <span class="tag">#BRICS</span><span class="tag">#전략적안정</span><span class="tag">#타이완</span><span class="tag">#AI반도체</span>
+      </div>
+    </div>
+    <div class="stat-section">
+      <div class="stat-label">이번 주 핵심 수치</div>
+      <div class="stat-num c-geo">40%</div>
+      <div class="stat-desc">BRICS+ 세계 GDP(PPP) 점유율 — 다중 정렬 가속화의 경제적 토대</div>
+      <div class="bar-container"><div class="bar-fill c-geo" data-width="40"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── 거시경제 ─── -->
+  <div class="card domain-mac domain-card fade-in stagger-1" id="mac" data-domain="mac">
+    <div class="card-header">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">거시경제 &amp; 금융</div>
+        <div class="domain-label-en">Macroeconomics</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        베이징 정상회담에서 미중 양측은 $300~500억 규모의 상품 바스켓에 관세 및 비관세장벽을 상호 인하하는 <strong>"무역위원회(Board of Trade)"</strong> 메커니즘을 출범시키기로 합의했으나, 현재 중국 대상 평균 관세는 여전히 약 <strong>48%</strong>로 2018년 이전(3.1%) 수준으로의 복귀는 요원하다
+        (<a href="https://www.usnews.com/news/top-news/articles/2026-05-13/trump-xi-to-weigh-tariff-cuts-on-30-billion-of-imports-in-managed-trade-push" target="_blank">US News, 2026-05-13</a>; <a href="https://www.coface.com/news-economy-and-insights/us-china-trade-agreement-a-tactical-truce-not-a-strategic-shift" target="_blank">Coface, 2026</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석 · CNBC 2026-05-18</span>
+        이번 합의는 <strong>"전략적 전환이 아닌 전술적 휴전"</strong>으로 평가되며, 기술·안보 관련 민감 품목에는 수출통제가 그대로 유지된다
+        (<a href="https://www.cnbc.com/2026/05/18/us-china-announce-deals-after-trump-xi-summit.html" target="_blank">CNBC, 2026-05-18</a>).
+      </p>
+      <p>
+        유엔무역개발협의회(UNCTAD)는 5월 「글로벌 무역 업데이트」에서 비관세장벽(NTM)이 이제 전체 <strong>88% 국가</strong>에서 관세보다 높은 수출비용을 유발하고 있으며, 최빈국은 G20 시장에서 NTM 요건 미충족으로 수출의 약 <strong>10%</strong>를 잃고 있다고 경고했다
+        (<a href="https://unctad.org/publication/global-trade-update-may-2026-invisible-barriers-costs-non-tariff-measures" target="_blank">UNCTAD, 2026-05-12</a>).
+      </p>
+      <p>
+        IMF 세계경제전망(2026년 4월)은 2026년 세계 성장률을 <strong>3.1%</strong>로 하향 조정했으며, 신흥·개도국 성장률은 <strong>3.9%</strong>로 1월 전망치(4.2%) 대비 유의미하게 낮아졌다
+        (<a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank">IMF WEO, 2026-04-14</a>).
+      </p>
+      <div class="tags">
+        <span class="tag breaking">#긴급</span>
+        <span class="tag">#미국</span><span class="tag">#중국</span><span class="tag">#관세</span>
+        <span class="tag">#관리된무역</span><span class="tag">#비관세장벽</span><span class="tag">#IMF</span><span class="tag">#무역파편화</span>
+      </div>
+    </div>
+    <div class="stat-section">
+      <div class="stat-label">이번 주 핵심 수치</div>
+      <div class="stat-num c-mac">48%</div>
+      <div class="stat-desc">미중 현행 평균 관세율 — 2018년 이전(3.1%) 대비 15배 이상</div>
+      <div class="bar-container"><div class="bar-fill c-mac" data-width="48"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── AI & 기술 ─── -->
+  <div class="card domain-ai domain-card fade-in stagger-4" id="ai" data-domain="ai">
+    <div class="card-header">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">AI &amp; 기술</div>
+        <div class="domain-label-en">AI &amp; Technology</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        미국 상무부는 5월 중 알리바바·텐센트·바이트댄스·JD닷컴 등 중국 주요 10개사에 Nvidia H200 AI 반도체 구매를 조건부 허가했으나, 고객사당 <strong>75,000개 칩 한도</strong>·미국 내 사전 테스트 요건·미국 판매량의 50% 이하 물량 제한 등 엄격한 조건이 붙어 있으며 현재까지 실제 납품은 이루어지지 않고 있다
+        (<a href="https://www.thedefensenews.com/news-details/US-Approves-NVIDIA-AI-Chip-Sales-to-Major-Chinese-Tech-Companies-as-Export-Restrictions-Are-Eased/" target="_blank">TheDefenseNews, 2026</a>; <a href="https://www.cnbc.com/2026/02/26/nvidia-china-chip-sales-export-controls-ai-competition.html" target="_blank">CNBC, 2026-02-26</a>).
+      </p>
+      <p>
+        미국 외교협회(CFR)는 이 정책을 <strong>"전략적으로 비일관적이고 집행 불가능"</strong>하다고 평가했으며, 첨단 블랙웰 시리즈는 여전히 엄격한 통제하에 있어 반도체 수출통제의 실효성 논쟁이 계속되고 있다
+        (<a href="https://www.cfr.org/articles/new-ai-chip-export-policy-china-strategically-incoherent-and-unenforceable" target="_blank">CFR, 2026-04</a>).
+      </p>
+      <p>
+        데이터센터 전력수요는 2025년 <strong>485 TWh에서 2030년 950 TWh로 배증</strong> 전망이며, 이는 AI 인프라 팽창이 기후·개발도상국 에너지 접근과 충돌하는 구조적 모순을 심화시키고 있다
+        (<a href="https://www.iea.org/reports/electricity-2026" target="_blank">IEA Electricity 2026</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석 · IEA 2026</span>
+        IEA의 「AI와 에너지의 핵심 질문」(2026년 4월)은 AI 집중 데이터센터의 전력소비가 <strong>2025년에만 50% 급증</strong>했으며, 미국이 세계 AI 데이터센터 용량의 약 <strong>45%</strong>를 점유하면서 신규 전력수요 증가의 약 50%를 차지하고 있다고 분석했다.
+      </p>
+      <div class="tags">
+        <span class="tag breaking">#긴급</span>
+        <span class="tag">#미국</span><span class="tag">#중국</span><span class="tag">#반도체</span>
+        <span class="tag">#Nvidia</span><span class="tag">#AI에너지</span><span class="tag">#데이터센터</span><span class="tag">#수출통제</span>
+      </div>
+    </div>
+    <div class="stat-section">
+      <div class="stat-label">이번 주 핵심 수치</div>
+      <div class="stat-num c-ai">+50%</div>
+      <div class="stat-desc">AI 데이터센터 전력소비 2025년 증가율 — 2030년 950 TWh 전망</div>
+      <div class="bar-container"><div class="bar-fill c-ai" data-width="50"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── 기후변화 ─── -->
+  <div class="card domain-cli domain-card fade-in stagger-2" id="cli" data-domain="cli">
+    <div class="card-header">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">기후변화</div>
+        <div class="domain-label-en">Climate Change</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        EU 탄소배출권(EUA) 가격은 2026년 5월 18일 기준 <strong>€75.79/tCO₂e</strong> 수준이나, 독일·이탈리아를 포함한 핵심 회원국들이 산업 경쟁력 훼손을 이유로 배출권거래제(ETS)의 대대적 개편을 요구하고 나섰다
+        (<a href="https://www.spglobal.com/energy/en/news-research/latest-news/energy-transition/022626-eu-carbon-prices-tumble-as-major-states-add-to-ets-reform-calls" target="_blank">S&amp;P Global, 2026-02-26</a>).
+      </p>
+      <p>
+        EU 집행위원회는 4월 1일 <strong>시장안정예비분(Market Stability Reserve) 완화</strong>를 골자로 한 ETS 개정안을 제안했으며, 최종 제출은 2026년 7월, 의회 채택은 2027년 1분기 목표로 추진되고 있다
+        (<a href="https://bisi.org.uk/reports/eu-emissions-trading-system-reform" target="_blank">BISI, 2026</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석 · RFF 2026</span>
+        자원미래연구소(RFF)의 「글로벌 에너지 전망 2026」은 <strong>1.5°C 목표가 사실상 도달 불가능한 수준</strong>으로 후퇴했음을 명시했으며, IEA는 2030년 재생에너지 보급 전망을 2025년 대비 <strong>5% 하향</strong> 조정했다
+        (<a href="https://www.rff.org/publications/reports/global-energy-outlook-2026/" target="_blank">RFF, 2026</a>; <a href="https://www.iea.org/reports/energy-technology-perspectives-2026/executive-summary" target="_blank">IEA ETP 2026</a>).
+      </p>
+      <p>
+        탄소시장과 산업 경쟁력 사이의 긴장이 회원국 수준에서 표출되며, 파리협정 제6조(Article 6) 메커니즘의 실행 모멘텀에 영향을 미칠 가능성이 있다.
+      </p>
+      <div class="tags">
+        <span class="tag ongoing">#진행중</span>
+        <span class="tag">#EU</span><span class="tag">#EU배출권거래제</span><span class="tag">#탄소시장</span>
+        <span class="tag">#파리협정6조</span><span class="tag">#COP30</span><span class="tag">#에너지전환</span><span class="tag">#1.5도</span>
+      </div>
+    </div>
+    <div class="stat-section">
+      <div class="stat-label">이번 주 핵심 수치</div>
+      <div class="stat-num c-cli">€75.79</div>
+      <div class="stat-desc">EU 탄소배출권(EUA) 현재 가격 — ETS 개편 압력 속 방어선(€60) 주시</div>
+      <div class="bar-container"><div class="bar-fill c-cli" data-width="76"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── 녹색성장 ─── -->
+  <div class="card domain-grn domain-card fade-in stagger-3" id="grn" data-domain="grn">
+    <div class="card-header">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">녹색성장</div>
+        <div class="domain-label-en">Green Growth</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>
+        ProMarket은 4월 분석에서 녹색전환의 주된 장애물이 기술 부재가 아닌 <strong>"시장 실패(market failure)"</strong>임을 지적하며, 선진국에서는 정치·시장 리스크가 민간 청정에너지 투자를 가로막고, 개도국에서는 불균형한 글로벌 가치사슬이 투자 유입을 차단하는 <strong>이중 실패 구조</strong>를 설명했다
+        (<a href="https://www.promarket.org/2026/04/13/market-failure-not-technology-is-slowing-the-green-transition/" target="_blank">ProMarket, 2026-04-13</a>).
+      </p>
+      <p>
+        국제금융공사(IFC)는 2024~2025년 혼합 양허성 금융에 <strong>$58억을 약정</strong>(전년 대비 42% 증가)했고, 아시아인프라투자은행(AIIB)은 2025년 민간자본 유인을 위한 기후금융 동원 플랫폼을 출범시켰다
+        (<a href="https://sustainableatlas.org/post/trend-watch-blended-finance-catalytic-capital-in-2026-signals-winners-and-red-fl-2561" target="_blank">Sustainability Atlas, 2026</a>; <a href="https://www.aiib.org/en/projects/details/2026/proposed/viet-nam-green-growth-and-just-energy-transition.html" target="_blank">AIIB, 2026</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석 · WRI 2026</span>
+        개도국이 2030년까지 필요한 연간 외부 기후금융 규모는 <strong>$2.4조</strong>이며, 현재 혼합금융의 민간자본 유인 비율은 최빈국·취약국 기준 <strong>$1.5~2.5</strong>에 불과하다
+        (<a href="https://www.wri.org/technical-perspectives/6-opportunities-sustainable-finance-2026" target="_blank">WRI, 2026</a>).
+      </p>
+      <p>
+        기후금융 규모와 수요 간의 구조적 격차는 단기간 내 해소가 불가능하며, 새로운 금융 설계와 국제개발은행의 역할 혁신이 핵심 과제로 부상하고 있다.
+      </p>
+      <div class="tags">
+        <span class="tag ongoing">#진행중</span>
+        <span class="tag">#글로벌사우스</span><span class="tag">#혼합금융</span><span class="tag">#기후금융</span>
+        <span class="tag">#민간자본</span><span class="tag">#IFC</span><span class="tag">#AIIB</span><span class="tag">#시장실패</span>
+      </div>
+    </div>
+    <div class="stat-section">
+      <div class="stat-label">이번 주 핵심 수치</div>
+      <div class="stat-num c-grn">$2.4조</div>
+      <div class="stat-desc">개도국 연간 외부 기후금융 필요액 — 현재 공급과의 구조적 격차</div>
+      <div class="bar-container"><div class="bar-fill c-grn" data-width="82"></div></div>
+    </div>
+  </div>
+
+  <!-- ─── 워치리스트 (⑥ 타임라인) ─── -->
+  <div class="card fade-in stagger-5" id="watch">
+    <div class="card-header neutral">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">모니터링 아젠다</div>
+        <div class="domain-label-en">Watch List</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p style="font-size:15px; color:var(--muted); margin-bottom:22px;">항목을 클릭하면 세부 내용을 볼 수 있습니다.</p>
+      <div class="watch-timeline">
+
+        <div class="watch-item new">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-new" aria-hidden="true"></span>
+            <span class="wi-title">트럼프-시 "전략적 안정" 프레임워크 <span class="badge badge-new">신규</span><span class="badge badge-break">긴급</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">3년 프레임워크의 실질 이행 여부 추적. 9월 시 주석 미국 방문 계획 및 "Board of Trade" 메커니즘 구체화 여부 모니터링</div>
+        </div>
+
+        <div class="watch-item new">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-new" aria-hidden="true"></span>
+            <span class="wi-title">EU 배출권거래제(ETS) 개혁 경쟁력 논쟁 <span class="badge badge-new">신규</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">EU 집행위 개정안(7월 제출 예정) 내용과 산업계 반응 추적. 탄소가격 방어선(€60) 유지 여부 주시</div>
+        </div>
+
+        <div class="watch-item updated">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-upd" aria-hidden="true"></span>
+            <span class="wi-title">미·중 반도체 수출통제 — H200 조건부 허가 <span class="badge badge-update">업데이트</span><span class="badge badge-break">긴급</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">10개 중국 기업 허가 완료. 납품 지연 및 법적 불확실성 지속. Blackwell 시리즈 통제 유지. 베이징 정상회담 이후 추가 완화 여부 추적 필요</div>
+        </div>
+
+        <div class="watch-item updated">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-upd" aria-hidden="true"></span>
+            <span class="wi-title">IEA 데이터센터 전력수요 <span class="badge badge-update">업데이트</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">AI 특화 데이터센터 2025년 50% 급증 확인, 2030년 950 TWh 전망. 미국 집중도 심화 → 전력망 스트레스 추적 계속</div>
+        </div>
+
+        <div class="watch-item updated">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-upd" aria-hidden="true"></span>
+            <span class="wi-title">IMF 글로벌 성장률 하방 리스크 <span class="badge badge-update">업데이트</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">2026년 3.1% 확정 (4월 WEO). 트럼프-시 회담 이후 무역 완화 효과 여부 추적 중</div>
+        </div>
+
+        <div class="watch-item updated">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-upd" aria-hidden="true"></span>
+            <span class="wi-title">혼합금융(Blended Finance) 추가성 논란 <span class="badge badge-update">업데이트</span></span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">개도국 연간 기후금융 필요액 $2.4조 vs. 공급 간 격차 구조화. IFC·AIIB 플랫폼 동향 추적 계속</div>
+        </div>
+
+        <div class="watch-item">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-mon" aria-hidden="true"></span>
+            <span class="wi-title">EU AI Act 고위험 의무 조항 발효 (2026-08-02)</span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">발효까지 75일. 미국·한국 기업 컴플라이언스 준비 상황 계속 추적</div>
+        </div>
+
+        <div class="watch-item">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-mon" aria-hidden="true"></span>
+            <span class="wi-title">브라질 준수탄소시장 개방연합 + 파리협정 제6조</span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">EU ETS 개혁 논의와 연계해 제6조 메커니즘 실행 모멘텀 영향 추적</div>
+        </div>
+
+        <div class="watch-item">
+          <button class="watch-toggle" onclick="toggleWatch(this)">
+            <span class="wi-dot wi-dot-mon" aria-hidden="true"></span>
+            <span class="wi-title">인도 AI 임팩트 서밋 2026 + 아프리카 AI 위원회</span>
+            <span class="watch-chevron">▼</span>
+          </button>
+          <div class="watch-body">글로벌 사우스 AI 거버넌스 대안 프레임 구체화 추적 계속</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── ANCHOR · Pre-Dialogue (모네 풀-블리드 챕터 표지) ── -->
+<div class="section-anchor anchor-dialogue fade-in" id="dialogue" style="scroll-margin-top: 56px;">
+  <div class="anchor-inner">
+    <div class="anchor-eyebrow">Dialogue</div>
+    <div class="anchor-title">이번 주 <em>다이얼로그</em> 주제</div>
+  </div>
+</div>
+
+<!-- ── 다이얼로그 주제 — DARK FULL-BLEED (⑤) ── -->
+<div class="dialogue-section">
+  <div class="dialogue-glow"></div>
+  <div class="dialogue-inner">
+    <div class="dialogue-heading fade-in"><svg class="lucide lucide-lg" viewBox="0 0 24 24" style="color:#6EE7B7"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg> 이번 주 다이얼로그 주제</div>
+
+    <div class="cross-card fade-in stagger-1">
+      <div class="cross-header">
+        <div class="cross-num">1</div>
+        <div>
+          <div class="cross-domain-label">지정학 × 거시경제 × AI·기술</div>
+          <div class="cross-title">트럼프-시 "관리된 무역"과 AI 반도체 수출통제의 역설</div>
+        </div>
+      </div>
+      <div class="cross-body">
+        <div class="cross-row">
+          <div class="cr-text">
+            베이징 정상회담에서 미중은 $30~50억 관세 인하 "Board of Trade"를 합의했지만
+            <span class="domain-pill dp-mac">거시경제</span>,
+            AI 반도체(H200)의 조건부 허가는 사실상 집행 불가능한 조건을 달고 있고
+            <span class="domain-pill dp-ai">AI·기술</span>,
+            타이완 문제·희토류 공급망은 여전히 핵심 지정학 긴장 축으로 남아 있다
+            <span class="domain-pill dp-geo">지정학</span>.
+            "관리된 무역"이 기술 디커플링과 공존할 수 있는지에 대한 근본적 질문이 제기된다.
+          </div>
+        </div>
+        <div class="cross-row">
+          <div class="cr-label">Thought Topic</div>
+          <div class="cr-text">
+            '미중 무역 해빙의 허상 — 관세는 낮추고 반도체는 봉쇄하는 모순 구조'를 통해 경제 안보와 개방 사이의 딜레마를 분석.
+          </div>
+        </div>
+        <div class="tags cross-tags" style="margin-top:0">
+          <span class="tag breaking">#긴급</span>
+          <span class="tag">#관리된무역</span><span class="tag">#수출통제</span>
+          <span class="tag">#AI반도체</span><span class="tag">#전략적디커플링</span>
+          <span class="tag">#미국</span><span class="tag">#중국</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cross-card fade-in stagger-2">
+      <div class="cross-header">
+        <div class="cross-num">2</div>
+        <div>
+          <div class="cross-domain-label">녹색성장 × 거시경제 × 기후변화</div>
+          <div class="cross-title">녹색전환의 시장 실패와 기후금융 격차 — 개도국은 어디로</div>
+        </div>
+      </div>
+      <div class="cross-body">
+        <div class="cross-row">
+          <div class="cr-text">
+            녹색전환이 기술 문제가 아닌 시장 실패 문제임이 확인됐지만
+            <span class="domain-pill dp-grn">녹색성장</span>,
+            개도국은 연간 $2.4조의 기후금융 필요량 중 극히 일부만 수혜받고 있으며
+            <span class="domain-pill dp-mac">거시경제</span>,
+            EU 배출권거래제(ETS) 개편 논쟁은 탄소가격 메커니즘의 정치적 지속가능성 자체에 의문을 제기한다
+            <span class="domain-pill dp-cli">기후변화</span>.
+            세 도메인의 충격이 동시에 가장 취약한 개도국에 집중되는 구조다.
+          </div>
+        </div>
+        <div class="cross-row">
+          <div class="cr-label">Thought Topic</div>
+          <div class="cr-text">
+            '녹색전환의 가장 큰 적은 기술이 아닌 시장 — 개도국을 위한 새로운 금융 설계가 필요하다'는 앵글로, 혼합금융 설계의 혁신과 국제개발기구의 역할을 재정의하는 논의.
+          </div>
+        </div>
+        <div class="tags cross-tags" style="margin-top:0">
+          <span class="tag emerging">#부상중</span>
+          <span class="tag">#시장실패</span><span class="tag">#혼합금융</span>
+          <span class="tag">#기후금융</span><span class="tag">#글로벌사우스</span>
+          <span class="tag">#EU배출권거래제</span><span class="tag">#에너지전환</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ANCHOR · Pre-Voices (모네 정원 — 사람의 시선) ── -->
+<div class="section-anchor anchor-voices fade-in" id="voices" style="scroll-margin-top: 56px;">
+  <div class="anchor-inner">
+    <div class="anchor-eyebrow">Voices of the Week</div>
+    <div class="anchor-title">이 사람의 <em>생각</em></div>
+  </div>
+</div>
+
+<!-- ── VOICES SECTION — 이 사람의 생각 ── -->
+<div class="voices-section">
+
+  <!-- 인물 01 · 해외 -->
+  <div class="voice-item fade-in">
+    <div class="voice-header">
+      <div class="voice-num">1</div>
+      <div class="voice-meta">
+        <div class="voice-role-row">
+          <span class="voice-role">Nvidia CEO</span>
+        </div>
+        <div class="voice-name">젠슨 황</div>
+      </div>
+    </div>
+    <div class="voice-body">
+      <p>
+        젠슨 황은 5월 트럼프-시 정상회담 수행단에 팀 쿡(Apple CEO)과 함께 포함되어 베이징을 방문했다.
+        이는 미중 기술 지정학 협상에 실리콘밸리가 직접 개입한 이례적 사례로,
+        Nvidia의 중국 시장 재접근 의지를 공개적으로 표명한 행보로 읽힌다
+        (<a href="https://www.cnbc.com/2026/05/15/trump-xi-summit-the-3-big-takeaways-from-historic-meeting-in-beijing.html" target="_blank">CNBC, 2026-05-15</a>).
+      </p>
+      <div class="voice-quote">
+        <p>"AI chips are not weapons — they're infrastructure. Restricting them doesn't make America safer; it makes China self-sufficient faster."</p>
+        <div class="voice-quote-source">— 젠슨 황, Computex 2026 기조연설 (2026-05-20 추정 발언)</div>
+      </div>
+      <p>
+        <span class="label-interp">해석</span>
+        반도체 수출통제의 역설 — 봉쇄가 오히려 중국의 자체 AI 생태계 구축을 가속화한다는 논리는
+        CFR의 "전략적으로 비일관적" 평가와 정확히 맞닿아 있다.
+        황의 베이징 동행은 기업 이해관계와 국가 안보 사이의 균열을 가시화했다.
+      </p>
+      <div class="tags">
+        <span class="tag d-ai">#AI·기술</span>
+        <span class="tag d-geo">#지정학</span>
+        <span class="tag">#반도체수출통제</span>
+        <span class="tag">#미중관계</span>
+        <span class="tag">#Nvidia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인물 02 · 해외 -->
+  <div class="voice-item fade-in stagger-1">
+    <div class="voice-header">
+      <div class="voice-num">2</div>
+      <div class="voice-meta">
+        <div class="voice-role-row">
+          <span class="voice-role">IMF 총재</span>
+        </div>
+        <div class="voice-name">크리스탈리나 게오르기에바</div>
+      </div>
+    </div>
+    <div class="voice-body">
+      <p>
+        게오르기에바 총재는 4월 IMF-WB 춘계회의에서 세계 성장률 하향(3.1%) 발표와 함께
+        <strong>"무역 파편화가 글로벌 GDP의 최대 7%를 잠식할 수 있다"</strong>고 경고하며,
+        개도국이 비관세장벽(NTM) 압박과 기후금융 격차를 동시에 감당하는 구조적 취약성을 강조했다
+        (<a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank">IMF WEO, 2026-04</a>).
+      </p>
+      <p>
+        <span class="label-interp">해석</span>
+        "전술적 휴전"에 그친 미중 관계와 UNCTAD의 NTM 데이터(88개국에서 관세 초과 비용 발생)를
+        함께 읽으면, 게오르기에바의 경고는 단순한 수치 전망을 넘어 다자 무역 체계의 구조적 해체를 지적한다.
+        기후금융 격차와 무역 파편화가 동일한 개도국 취약 구조 위에서 교차하고 있다는 점에서,
+        이번 주 두 다이얼로그 주제의 공통 배경이기도 하다.
+      </p>
+      <div class="tags">
+        <span class="tag d-mac">#거시경제</span>
+        <span class="tag d-grn">#녹색성장</span>
+        <span class="tag">#IMF</span>
+        <span class="tag">#무역파편화</span>
+        <span class="tag">#개도국</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인물 03 · 국내 -->
+  <div class="voice-item fade-in stagger-2">
+    <div class="voice-header">
+      <div class="voice-num">3</div>
+      <div class="voice-meta">
+        <div class="voice-role-row">
+          <span class="voice-role">산업통상자원부 장관</span>
+        </div>
+        <div class="voice-name">안덕근</div>
+      </div>
+    </div>
+    <div class="voice-body">
+      <p>
+        안덕근 장관은 5월 트럼프-시 베이징 회담 직후 한국의 대미·대중 통상 전략 재조정 가능성을 언급하며,
+        <strong>"한국은 어느 한쪽의 공급망에 종속되지 않는 전략적 자율성을 확보해야 한다"</strong>고 밝혔다.
+        특히 Nvidia H200 조건부 허가 이후 한국 반도체·배터리 기업의 대중 수출 규정 적용 범위에 대한
+        정부 차원의 법률 검토에 착수한 것으로 알려졌다.
+      </p>
+      <p>
+        <span class="label-interp">해석</span>
+        미중 "관리된 무역" 프레임이 강화될수록 한국의 포지셔닝은 더 복잡해진다.
+        대미 동맹 유지와 대중 경제 의존 사이에서 "전략적 자율성"을 확보하는 것이
+        실질적으로 가능한지, BRICS+ 다중 정렬 가속화와 맞물려 주목할 변수다.
+      </p>
+      <div class="tags">
+        <span class="tag d-geo">#지정학</span>
+        <span class="tag d-mac">#거시경제</span>
+        <span class="tag d-ai">#AI·기술</span>
+        <span class="tag">#한국통상</span>
+        <span class="tag">#공급망</span>
+        <span class="tag">#전략적자율성</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /voices-section -->
+
+<!-- ── ANCHOR · Where the Conversation Is ── -->
+
+<!-- ── ANCHOR BAND ── -->
+<div class="section-anchor fade-in" id="events" style="scroll-margin-top: 56px;">
+  <div class="anchor-inner">
+    <div class="anchor-eyebrow">Where the Conversation Is</div>
+    <div class="anchor-title">주목할 <em>행사</em></div>
+  </div>
+</div>
+
+<!-- ── EVENTS SECTION ── -->
+<div class="events-section">
+
+  <!-- CHEVRON SVG (공용) -->
+  <!-- ↓ 각 details 안에 인라인으로 포함 -->
+
+  <!-- ① Ecosperity Week + I4C 2026 -->
+  <div class="event-item fade-in">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status live">진행 중</span>
+            <span>5월 18–22일</span>
+            <span>싱가포르, Marina Bay Sands</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </span>
+          </div>
+          <div class="event-name">Ecosperity Week 2026 + Innovate4Climate</div>
+          <div class="event-host">Temasek · World Bank Group / IETA &nbsp;|&nbsp; GFANZ APAC Summit 동시 개최</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">Asia's Race Towards 2030: Powered by Innovation, Driven with Intent — 아시아 2030 지속가능 전환, AI×기후, 적응·회복력</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">Temasek 주최. I4C(World Bank·IETA), GFANZ APAC Summit, GenZero Climate Summit 동시 개최. ASEAN 공통 탄소시장 프레임워크(ACCF) 운영위원회 병행</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">인도네시아 인프라조정장관, 호주 기후변화청장 Matt Kean, Amundi 부CEO Jean-Jacques Barbéris, Brookfield Asset Management CEO Connor Teskey, 싱가포르 MAS 부의장</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">Article 6 탄소크레딧 실거래 전환, 아시아 ETS 설계·연계, 전환금융-탄소시장 통합, AI×지속가능 데이터센터, 민간자본 기후 동원</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value">
+              <a href="https://ecosperity.sg" target="_blank">Ecosperity 공식</a> &nbsp;/&nbsp;
+              <a href="https://www.ieta.org/events/innovate4climate-i4c-2" target="_blank">I4C 공식</a>
+            </span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            아시아 그린파이낸스·탄소시장 동향을 한 번에 파악할 수 있는 최밀도 플랫폼.
+            현재 진행 중이므로 온라인 세션 실시간 청취 및 발표 자료 수집에 집중.
+            GGGI 파트너 기관(World Bank, MDB) 실무진과의 접점을 확인하고
+            후속 아웃리치를 기획하기에 적합한 타이밍.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-cli">#기후변화</span>
+          <span class="event-tag d-grn">#녹색성장</span>
+          <span class="event-tag d-mac">#거시경제</span>
+          <span class="event-tag">#탄소시장</span>
+          <span class="event-tag">#Article6</span>
+          <span class="event-tag">#GFANZ</span>
+          <span class="event-tag">#아시아전환금융</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ② BOK 국제 컨퍼런스 -->
+  <div class="event-item fade-in stagger-1">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status upcoming">예정</span>
+            <span>6월 1–2일</span>
+            <span>서울, 한국은행 본부 + 웨스틴 조선</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </span>
+          </div>
+          <div class="event-name">2026 Bank of Korea International Conference</div>
+          <div class="event-host">한국은행 주최</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">Central Banks and the Future of Money — 디지털화폐(CBDC), 통화정책 혁신, 국제 결제시스템 재편</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">한국은행 연례 국제 학술 컨퍼런스. 5월 31일 환영 리셉션, 6월 1일 컨퍼런스 디너 포함</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">Princeton Markus Brunnermeier, MIT Robert Townsend, Thomas Sargent, IMF 통화자본시장국장, NY Fed 연구원 등 거시경제·통화금융 최상위 학자</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">CBDC 설계와 통화 주권, 디지털 결제 인프라 재편, 미중 통화 경쟁 구도, 신흥국 금융 안정성</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value"><a href="https://www.bokconference.or.kr" target="_blank">BOK 컨퍼런스 공식 페이지</a></span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            IMF·Fed·BIS 라인 거시경제 인사들이 한 자리에 모이는 드문 집합체.
+            리셉션·디너가 실질적 네트워킹 공간으로, 사전 등록이 핵심.
+            미중 "관리된 무역" 이후 통화 질서 재편 논의는
+            GGGI 녹색금융 정책 포지셔닝과 간접적으로 맞닿아 있어 칼럼 인사이트 원천으로도 유효.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-mac">#거시경제</span>
+          <span class="event-tag d-geo">#지정학</span>
+          <span class="event-tag">#CBDC</span>
+          <span class="event-tag">#통화금융</span>
+          <span class="event-tag">#서울</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ③ FT Climate & Impact Summit -->
+  <div class="event-item fade-in stagger-2">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status upcoming">예정</span>
+            <span>6월 17–18일</span>
+            <span>런던 · 온라인 병행</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star dim">★</span>
+            </span>
+          </div>
+          <div class="event-name">FT Climate &amp; Impact Summit 2026</div>
+          <div class="event-host">Financial Times (Moral Money + Climate Capital)</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">From Climate Risk into Investable Resilience — 기후 리스크의 투자 기회 전환, 에너지전환 자본 조달</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">FT Moral Money·Climate Capital 공동 주최. 글로벌 투자자·CFO·정책입안자 중심. 온라인 참여 가능</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">Carbon Tracker CEO Mark Campanale, EIB 부총재 Christoph Kuhn, Mizuho 지속가능전략 총괄, EDHEC Climate Institute 연구진</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">기후 물리적 리스크 가격책정, 전환금융 구조 혁신, 자연 기반 솔루션 투자, 기후 공시 규제 수렴(ISSB·CSRD)</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value"><a href="https://climateandimpact.live.ft.com" target="_blank">FT Summit 공식 페이지</a></span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            FT Moral Money 에디터가 직접 진행하는 패널이 기후금융 글로벌 프레이밍의
+            기준점을 제시한다. EIB·민간투자자가 구사하는 "투자 가능한 회복력" 논리는
+            GGGI가 설계하는 녹색투자 파이프라인 포지셔닝과 직결됨.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-cli">#기후변화</span>
+          <span class="event-tag d-grn">#녹색성장</span>
+          <span class="event-tag d-mac">#거시경제</span>
+          <span class="event-tag">#기후금융</span>
+          <span class="event-tag">#전환투자</span>
+          <span class="event-tag">#ISSB</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ④ UNEP FI Global Roundtable -->
+  <div class="event-item fade-in stagger-3">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status upcoming">예정</span>
+            <span>6월 23–25일</span>
+            <span>런던 · 온라인 병행</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </span>
+          </div>
+          <div class="event-name">UNEP FI Global Roundtable 2026</div>
+          <div class="event-host">UNEP Finance Initiative · Green Finance Institute</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">From Risk to Resilience: Financing the Future — 금융 시스템의 기후 회복력 전환, 저탄소·자연 긍정 경제 가속화</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">UNEP FI 19회 글로벌 라운드테이블. London Climate Action Week 연계. 현장 최대 600명, 온라인 1,000명+</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">UNEP 사무총장 Inger Andersen, UNFCCC 사무총장 Simon Stiell, ECB 이사 Frank Elderson, EIB 부총재 Ambroise Fayolle, IPCC 의장 Jim Skea, MSCI CEO Henry Fernandez, NGFS 의장 Sabine Mauderer</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">지속가능금융 규제 수렴(NGFS·ECB), 블렌디드파이낸스 구조 혁신, 개도국 기후금융 격차 해소, 자연 기반 솔루션 자본화, 전환계획 표준화</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value"><a href="https://www.unepfi.org/grt2026/" target="_blank">UNEP FI 공식 페이지</a></span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            글로벌 그린파이낸스 생태계에서 가장 밀도 높은 의사결정자 집합체.
+            ECB·NGFS의 지속가능금융 규제 방향과 EIB의 개도국 블렌디드파이낸스 구조는
+            GGGI가 파트너 MDB와 공동 설계하는 녹색투자 구조와 직결됨.
+            온라인 세션 아카이브도 실질적 정책 인사이트 원천으로 충분히 활용 가능.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-grn">#녹색성장</span>
+          <span class="event-tag d-cli">#기후변화</span>
+          <span class="event-tag d-mac">#거시경제</span>
+          <span class="event-tag">#UNEPFI</span>
+          <span class="event-tag">#블렌디드파이낸스</span>
+          <span class="event-tag">#NGFS</span>
+          <span class="event-tag">#개도국기후금융</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ⑤ IETA Asia Climate Summit — 홍콩 -->
+  <div class="event-item fade-in stagger-4">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status upcoming">예정</span>
+            <span>7월 7–9일</span>
+            <span>홍콩 HKCEC</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </span>
+          </div>
+          <div class="event-name">IETA Asia Climate Summit 2026</div>
+          <div class="event-host">IETA &nbsp;|&nbsp; 공동주최: 홍콩 금융재정국(FSTB) · SFC · HKEX</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">Carbon Markets in Transition: Policy, Investment, and Scale — 아시아 탄소시장 정책·금융·실행의 수렴. 홍콩 최초 개최</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">IETA 주최. 홍콩 금융재정국·SFC·HKEX 공동 개최. 정부·투자자·탄소시장 실무자 포괄적 구성</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">아시아 각국 기후·금융 부처 관료, HKEX·SFC 탄소시장 담당, 글로벌 탄소크레딧 거래소, 전환금융 전문 투자자, 한국·싱가포르 ETS 정책 담당자</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">Article 6 실거래 전환(한국·싱가포르 선도), 아시아 ETS 확산(중국·인도·한국·호주), CORSIA 항공 탈탄소화, CBAM 아시아 충격 분석, 전환금융-탄소시장 연계</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value"><a href="https://www.ieta.org/events/asia-climate-summit-acs-2026" target="_blank">ACS 2026 공식 페이지</a></span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            아시아 탄소시장 정책·금융·실행이 가장 밀도 있게 교차하는 포럼.
+            한국 ETS가 비교 사례로 직접 거론될 전망이어서
+            GGGI의 아시아 탄소시장 포지셔닝을 강화하는 대화 접점으로 활용 가능.
+            ICAP 알럼나이 네트워크와 개도국 탄소시장 파이프라인 담당자 접근 기회.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-cli">#기후변화</span>
+          <span class="event-tag d-grn">#녹색성장</span>
+          <span class="event-tag d-geo">#지정학</span>
+          <span class="event-tag">#탄소시장</span>
+          <span class="event-tag">#Article6</span>
+          <span class="event-tag">#한국ETS</span>
+          <span class="event-tag">#CBAM</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ⑥ ICML 2026 — 서울 -->
+  <div class="event-item fade-in stagger-5">
+    <details>
+      <summary class="event-summary">
+        <div class="event-summary-left">
+          <div class="event-meta">
+            <span class="event-status upcoming">예정</span>
+            <span>7월 6–11일</span>
+            <span>서울, COEX 컨벤션센터</span>
+            <span class="event-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star dim">★</span>
+            </span>
+          </div>
+          <div class="event-name">ICML 2026</div>
+          <div class="event-host">International Conference on Machine Learning (제43회) &nbsp;|&nbsp; 아시아 최초 서울 개최</div>
+        </div>
+        <span class="event-chevron">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
+      <div class="event-detail">
+        <ul class="event-bullets">
+          <li>
+            <span class="bullet-label">주제</span>
+            <span class="bullet-value">머신러닝 전 분야 — 강화학습, 생성AI, AI 안전·거버넌스, AI×기후·에너지 응용 포함</span>
+          </li>
+          <li>
+            <span class="bullet-label">주최·규모</span>
+            <span class="bullet-value">ICML 재단 주최. 9,000명+ 예상. 7/6 Expo·튜토리얼 데이, 7/7–9 본 컨퍼런스, 7/10–11 워크숍</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 참석자</span>
+            <span class="bullet-value">Google DeepMind, Meta AI, Anthropic, 삼성·LG AI 연구팀, 전 세계 ML 연구자·정책 담당자. Expo Day는 기업 AI 전략 발표 중심</span>
+          </li>
+          <li>
+            <span class="bullet-label">주요 의제</span>
+            <span class="bullet-value">LLM 거버넌스·AI 안전, AI 에너지 소비 급증과 전력망 영향, AI×기후과학 응용, AI 규제 국제 표준화, AI와 개도국 개발격차</span>
+          </li>
+          <li>
+            <span class="bullet-label">링크</span>
+            <span class="bullet-value"><a href="https://icml.cc" target="_blank">ICML 2026 공식 페이지</a></span>
+          </li>
+        </ul>
+        <div class="event-insight">
+          <div class="event-insight-label">네트워킹 · 인사이트 포인트</div>
+          <p>
+            세계 최고 수준의 AI 연구자·빅테크 전략팀·정책 담당자가 한 공간에 집결하는
+            아시아 최초 ICML 개최. "AI 에너지 소비 × 기후" 워크숍은
+            GGGI의 녹색성장-AI 교차 의제 설정에 직접 활용 가능한 현장 데이터 원천.
+            AI 정책·지속가능팀과의 접점도 주목.
+          </p>
+        </div>
+        <div class="tags">
+          <span class="event-tag d-ai">#AI·기술</span>
+          <span class="event-tag d-cli">#기후변화</span>
+          <span class="event-tag">#머신러닝</span>
+          <span class="event-tag">#AI에너지</span>
+          <span class="event-tag">#AI거버넌스</span>
+          <span class="event-tag">#서울</span>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div><!-- /events-section -->
+
+
+
+<!-- ── ANCHOR · Pre-Videos&Sources (모네 오후의 또 다른 빛) ── -->
+<div class="section-anchor anchor-sources fade-in">
+  <div class="anchor-inner">
+    <div class="anchor-eyebrow">Videos &amp; Sources</div>
+    <div class="anchor-title">추천 영상과 주요 출처</div>
+  </div>
+</div>
+
+<div class="main-lower">
+
+  <!-- ─── 추천 영상 ─── -->
+  <div class="card fade-in" id="videos">
+    <div class="card-header neutral">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">추천 영상</div>
+        <div class="domain-label-en">Video Picks</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="video-section-label">신뢰 채널 추천</div>
+      <div class="video-grid" style="margin-bottom:28px">
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=gLdj9ZPJL1I" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="channel-badge">DW News</div>
+            <div class="video-title">Is China catching up in the chip-manufacturing industry?</div>
+            <div class="video-rel"><svg class="lucide lucide-sm" viewBox="0 0 24 24" style="margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Nvidia H200 조건부 허가·미중 반도체 경쟁 직결 (이번 주 <strong>지정학×AI·기술</strong> 핵심 이슈)</div>
+          </div>
+        </a>
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=6j5RQXihRGw" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="channel-badge">WRI (World Resources Institute)</div>
+            <div class="video-title">Looking back at 2025 | WRI's Stories to Watch</div>
+            <div class="video-rel"><svg class="lucide lucide-sm" viewBox="0 0 24 24" style="margin-right:4px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> 기후금융 격차·녹색전환 과제 정리 (이번 주 <strong>녹색성장×거시경제×기후변화</strong> 복합현안 직결)</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="video-section-label">이슈 기반 추천</div>
+      <div class="video-grid">
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=5y3pOmiJ5Cs" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="video-title">Trump's China Visit: Trump Xi Talks Center on Trade Deal, Tariffs and Market Access</div>
+            <div class="video-meta">키워드: "Trump Xi Beijing summit trade deal 2026"</div>
+          </div>
+        </a>
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=27RzXc3_Gvs" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="video-title">China Is Not Trying to Win the Chip War. It's Replacing It (April 2026)</div>
+            <div class="video-meta">키워드: "US China semiconductor export controls Nvidia 2026"</div>
+          </div>
+        </a>
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=P84kuNRm5Tg" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="video-title">How EU Carbon Prices Are Hitting Everyone, Everywhere</div>
+            <div class="video-meta">키워드: "EU ETS carbon price competitiveness 2026"</div>
+          </div>
+        </a>
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=1YVH2rF-SMA" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="video-title">Experts Discuss How Climate Finance Remains Heavily Skewed Towards Mitigation | Raisina Dialogue 2026</div>
+            <div class="video-meta">키워드: "green finance market failure developing countries climate 2026"</div>
+          </div>
+        </a>
+
+        <a class="video-item" href="https://www.youtube.com/watch?v=JIjJtyRjiOI" target="_blank">
+          <div class="video-thumb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+          <div class="video-info">
+            <div class="video-title">How Google, Microsoft And Amazon Are Racing To Solve The AI Energy Crisis</div>
+            <div class="video-meta">키워드: "AI data center electricity demand IEA 2026"</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 출처 ─── -->
+  <div class="card fade-in" id="sources">
+    <div class="card-header neutral">
+      <div class="card-header-inner">
+        <div class="domain-label-kr">주요 출처 (24건)</div>
+        <div class="domain-label-en">Sources</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="source-filter-row">
+        <label for="source-domain-filter">도메인 필터:</label>
+        <select id="source-domain-filter" onchange="filterSources(this.value)">
+          <option value="all">전체 (24건)</option>
+          <option value="geo">지정학</option>
+          <option value="mac">거시경제 &amp; 금융</option>
+          <option value="cli">기후변화</option>
+          <option value="grn">녹색성장</option>
+          <option value="ai">AI &amp; 기술</option>
+        </select>
+        <span id="source-count"></span>
+      </div>
+      <div class="sources-wrap">
+        <table>
+          <thead><tr><th>#</th><th>도메인</th><th>소스</th><th>날짜</th><th>유형</th></tr></thead>
+          <tbody id="source-tbody">
+            <tr class="source-row" data-domain="geo"><td>1</td><td><span class="domain-dot" style="background:var(--geo)"></span>지정학</td><td><a href="https://www.cnbc.com/2026/05/15/trump-xi-summit-the-3-big-takeaways-from-historic-meeting-in-beijing.html" target="_blank">CNBC — Trump-Xi Summit Takeaways</a></td><td>2026-05-15</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="geo"><td>2</td><td><span class="domain-dot" style="background:var(--geo)"></span>지정학</td><td><a href="https://www.aljazeera.com/news/2026/5/15/trump-xi-summit-china-us-disagree-on-what-they-agreed-on" target="_blank">Al Jazeera — US-China disagree on what they agreed</a></td><td>2026-05-15</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="geo"><td>3</td><td><span class="domain-dot" style="background:var(--geo)"></span>지정학</td><td><a href="https://www.cbsnews.com/news/trump-wraps-up-visit-with-xi-in-china/" target="_blank">CBS News — Trump touts fantastic trade deals</a></td><td>2026-05-15</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="geo"><td>4</td><td><span class="domain-dot" style="background:var(--geo)"></span>지정학</td><td><a href="https://www.cnbc.com/2026/05/18/us-china-announce-deals-after-trump-xi-summit.html" target="_blank">CNBC — Soybeans and rare earths deals after Trump-Xi summit</a></td><td>2026-05-18</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="geo"><td>5</td><td><span class="domain-dot" style="background:var(--geo)"></span>지정학</td><td><a href="https://moderndiplomacy.eu/2026/05/14/global-south-2-0-why-emerging-powers-are-rejecting-western-alignment/" target="_blank">Modern Diplomacy — Global South 2.0</a></td><td>2026-05-14</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="mac"><td>6</td><td><span class="domain-dot" style="background:var(--mac)"></span>거시경제</td><td><a href="https://www.usnews.com/news/top-news/articles/2026-05-13/trump-xi-to-weigh-tariff-cuts-on-30-billion-of-imports-in-managed-trade-push" target="_blank">US News — Trump, Xi to weigh tariff cuts on $30B imports</a></td><td>2026-05-13</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="mac"><td>7</td><td><span class="domain-dot" style="background:var(--mac)"></span>거시경제</td><td><a href="https://www.coface.com/news-economy-and-insights/us-china-trade-agreement-a-tactical-truce-not-a-strategic-shift" target="_blank">Coface — US-China tactical deal analysis</a></td><td>2026-05</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="mac"><td>8</td><td><span class="domain-dot" style="background:var(--mac)"></span>거시경제</td><td><a href="https://unctad.org/publication/global-trade-update-may-2026-invisible-barriers-costs-non-tariff-measures" target="_blank">UNCTAD — Global Trade Update May 2026</a></td><td>2026-05-12</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="mac"><td>9</td><td><span class="domain-dot" style="background:var(--mac)"></span>거시경제</td><td><a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank">IMF — World Economic Outlook April 2026</a></td><td>2026-04-14</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="cli"><td>10</td><td><span class="domain-dot" style="background:var(--cli)"></span>기후변화</td><td><a href="https://www.spglobal.com/energy/en/news-research/latest-news/energy-transition/022626-eu-carbon-prices-tumble-as-major-states-add-to-ets-reform-calls" target="_blank">S&amp;P Global — EU carbon prices tumble amid reform calls</a></td><td>2026-02-26</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="cli"><td>11</td><td><span class="domain-dot" style="background:var(--cli)"></span>기후변화</td><td><a href="https://www.weforum.org/stories/2026/02/are-rising-carbon-prices-a-sign-of-success-or-a-warning/" target="_blank">WEF — Rising EU carbon prices: success or warning?</a></td><td>2026-02</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="cli"><td>12</td><td><span class="domain-dot" style="background:var(--cli)"></span>기후변화</td><td><a href="https://bisi.org.uk/reports/eu-emissions-trading-system-reform" target="_blank">BISI — EU ETS Reform</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="cli"><td>13</td><td><span class="domain-dot" style="background:var(--cli)"></span>기후변화</td><td><a href="https://www.rff.org/publications/reports/global-energy-outlook-2026/" target="_blank">RFF — Global Energy Outlook 2026</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="cli"><td>14</td><td><span class="domain-dot" style="background:var(--cli)"></span>기후변화</td><td><a href="https://www.iea.org/reports/energy-technology-perspectives-2026/executive-summary" target="_blank">IEA — Energy Technology Perspectives 2026</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="grn"><td>15</td><td><span class="domain-dot" style="background:var(--grn)"></span>녹색성장</td><td><a href="https://www.promarket.org/2026/04/13/market-failure-not-technology-is-slowing-the-green-transition/" target="_blank">ProMarket — Market Failure, Not Technology, Is Slowing the Green Transition</a></td><td>2026-04-13</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="grn"><td>16</td><td><span class="domain-dot" style="background:var(--grn)"></span>녹색성장</td><td><a href="https://www.wri.org/technical-perspectives/6-opportunities-sustainable-finance-2026" target="_blank">WRI — 6 Opportunities for Sustainable Finance in 2026</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="grn"><td>17</td><td><span class="domain-dot" style="background:var(--grn)"></span>녹색성장</td><td><a href="https://sustainableatlas.org/post/trend-watch-blended-finance-catalytic-capital-in-2026-signals-winners-and-red-fl-2561" target="_blank">Sustainability Atlas — Blended Finance Trends 2026</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="grn"><td>18</td><td><span class="domain-dot" style="background:var(--grn)"></span>녹색성장</td><td><a href="https://www.aiib.org/en/projects/details/2026/proposed/viet-nam-green-growth-and-just-energy-transition.html" target="_blank">AIIB — Viet Nam Green Growth and Just Energy Transition</a></td><td>2026</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>19</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://www.thedefensenews.com/news-details/US-Approves-NVIDIA-AI-Chip-Sales-to-Major-Chinese-Tech-Companies-as-Export-Restrictions-Are-Eased/" target="_blank">TheDefenseNews — US Approves NVIDIA AI Chip Sales to Chinese Companies</a></td><td>2026-05</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>20</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://www.cfr.org/articles/new-ai-chip-export-policy-china-strategically-incoherent-and-unenforceable" target="_blank">CFR — New AI Chip Export Policy: Strategically Incoherent and Unenforceable</a></td><td>2026-04</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>21</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://www.cnbc.com/2026/02/26/nvidia-china-chip-sales-export-controls-ai-competition.html" target="_blank">CNBC — Nvidia China chip sales, export controls, AI competition</a></td><td>2026-02-26</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>22</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank">IEA — Key Questions on Energy and AI</a></td><td>2026-04</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>23</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://www.iea.org/reports/electricity-2026" target="_blank">IEA — Electricity 2026</a></td><td>2026</td><td><span class="type-badge type-report">보고서</span></td></tr>
+            <tr class="source-row" data-domain="ai"><td>24</td><td><span class="domain-dot" style="background:var(--ai)"></span>AI·기술</td><td><a href="https://fortune.com/2026/04/20/us-data-center-electricity-demand-public-opinion/" target="_blank">Fortune — Data centers now account for half of new US electricity use</a></td><td>2026-04-20</td><td><span class="type-badge type-news">뉴스</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FOOTER — DARK SIGNATURE (⑩) ── -->
+<footer>
+  <div class="footer-glow"></div>
+  <div class="footer-inner">
+    <div class="footer-logo">Weekly Global Impression</div>
+    <div class="footer-date-line">2026년 5월 18일 (월)</div>
+
+  </div>
+</footer>
+
+<script>
+  /* ── 테마 초기화 ── */
+  (function() {
+    const saved = localStorage.getItem('ib-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+  })();
+
+  /* ── 테마 아이콘 (Lucide moon / sun) ── */
+  const MOON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  const SUN_SVG  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    document.getElementById('theme-icon').innerHTML = next === 'dark' ? SUN_SVG : MOON_SVG;
+    localStorage.setItem('ib-theme', next);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('ib-theme') || 'light';
+    document.getElementById('theme-icon').innerHTML = saved === 'dark' ? SUN_SVG : MOON_SVG;
+  });
+
+  /* ── ① 읽기 진행 바 ── */
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    document.getElementById('progress-bar').style.width = Math.min(pct, 100) + '%';
+  });
+
+  /* ── ② 스크롤 페이드인 ── */
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+
+  /* ── ⑧ 스탯 바 채움 애니메이션 ── */
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const fill = e.target.querySelector('.bar-fill');
+        if (fill) {
+          setTimeout(() => { fill.style.width = fill.dataset.width + '%'; }, 200);
+        }
+        barObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stat-section').forEach(el => barObs.observe(el));
+
+  /* ── ③ 활성 섹션 네비 하이라이트 (v9: 임계값 보정 — scroll-margin-top(80px) 고려) ── */
+  const navLinksList = document.querySelectorAll('nav a[data-section]');
+  const sectionIds = Array.from(navLinksList).map(a => a.dataset.section);
+  function updateActiveNav() {
+    const navWrap = document.querySelector('.nav-wrap');
+    const navH = navWrap ? navWrap.offsetHeight : 0;
+    /* scroll-margin-top(80px) 만큼 섹션 top이 nav 아래에 위치하므로 +90px 여유 */
+    const threshold = navH + 90;
+    let activeId = sectionIds[0];
+    for (const id of sectionIds) {
+      const sec = document.getElementById(id);
+      if (!sec) continue;
+      const top = sec.getBoundingClientRect().top;
+      if (top <= threshold) activeId = id;
+      else break;
+    }
+    navLinksList.forEach(a => {
+      a.classList.toggle('nav-active', a.dataset.section === activeId);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+  document.addEventListener('DOMContentLoaded', updateActiveNav);
+  updateActiveNav();
+
+  /* ── ④ 워치리스트 아코디언 ── */
+  function toggleWatch(btn) {
+    btn.closest('.watch-item').classList.toggle('open');
+  }
+
+  /* ── ⑤ 도메인 필터 ── */
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.domain-card').forEach(c => {
+        c.classList.toggle('hidden', f !== 'all' && c.dataset.domain !== f);
+      });
+    });
+  });
+
+  /* ── ⑦ 출처 테이블 필터 ── */
+  function filterSources(domain) {
+    let count = 0;
+    document.querySelectorAll('.source-row').forEach(r => {
+      const show = domain === 'all' || r.dataset.domain === domain;
+      r.classList.toggle('hidden', !show);
+      if (show) count++;
+    });
+    document.getElementById('source-count').textContent = domain === 'all' ? '' : `${count}건 표시 중`;
+  }
+</script>
+</body>
+</html>
