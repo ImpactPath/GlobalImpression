@@ -1383,6 +1383,9 @@
       radial-gradient(ellipse 38% 50% at 18% 80%, rgba(184,168,196,0.18) 0%, transparent 60%),
       linear-gradient(135deg, var(--pond-shadow) 0%, var(--pond-night) 100%);
   }
+  [data-theme="dark"] footer {
+    box-shadow: inset 0 18px 16px -6px var(--canvas);
+  }
   [data-theme="dark"] .anchor-sources {
     background:
       radial-gradient(ellipse 45% 60% at 82% 25%, rgba(230,169,138,0.22) 0%, transparent 60%),
@@ -1600,7 +1603,7 @@
       inset 0 -6px 5px -3px var(--canvas);
   }
   footer {
-    box-shadow: inset 0 7px 6px -4px var(--canvas);
+    box-shadow: inset 0 8px 7px -4px var(--canvas);
   }
   /* 앵커 eyebrow 앞 가로 막대 제거 — 텍스트가 왼쪽 끝에서 시작, 국문 타이틀과 정렬 */
   .anchor-eyebrow::before { display: none; }
@@ -1812,7 +1815,7 @@
   }
 
   /* ══════════════════════════════════════════════════
-     EVENTS — Where the Conversation Is (전용 스타일만)
+     EVENTS — Where the Conversation Flows (전용 스타일만)
      기존 시스템(section-anchor, anchor-eyebrow, fade-in 등) 재사용
      ══════════════════════════════════════════════════ */
 
@@ -2584,12 +2587,12 @@
 
 </div><!-- /voices-section -->
 
-<!-- ── ANCHOR · Where the Conversation Is ── -->
+<!-- ── ANCHOR · Where the Conversation Flows ── -->
 
 <!-- ── ANCHOR BAND ── -->
-<div class="section-anchor fade-in" id="events" style="scroll-margin-top: 56px;">
+<div class="section-anchor anchor-dialogue fade-in" id="events" style="scroll-margin-top: 56px;">
   <div class="anchor-inner">
-    <div class="anchor-eyebrow">Where the Conversation Is</div>
+    <div class="anchor-eyebrow">Where the Conversation Flows</div>
     <div class="anchor-title">주목할 <em>행사</em></div>
   </div>
 </div>
