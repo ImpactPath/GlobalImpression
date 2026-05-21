@@ -1315,6 +1315,209 @@
     color: var(--body);
   }
 
+  /* ─── DIALOGUE ACCORDION & OPINION SPECTRUM (v12) ─── */
+
+  /* 논의주제 */
+  .dlg-topic-wrap { margin-bottom: 20px; }
+  .dlg-topic {
+    font-family: var(--font-display);
+    font-size: 17px; font-weight: 500; font-style: italic;
+    color: var(--pond-midnight); line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  [data-theme="dark"] .dlg-topic { color: var(--periwinkle-mist); }
+
+  /* 아코디언 — .dialogue-section 내로 스코핑하여 이벤트 섹션과 충돌 방지 */
+  .dialogue-section details { margin-top: 4px; }
+  .dialogue-section details summary {
+    list-style: none;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px;
+    cursor: pointer; user-select: none;
+    border: 0.5px solid var(--hairline);
+    border-radius: 2px;
+    background: var(--surface-soft);
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--pond-cobalt);
+    transition: background .15s, border-color .15s;
+    position: sticky; top: 56px; z-index: 10;
+  }
+  .dialogue-section details summary::-webkit-details-marker { display: none; }
+  .dialogue-section details summary::marker { display: none; }
+  .dialogue-section details summary:hover { background: var(--surface-card); border-color: var(--pond-sage); }
+  [data-theme="dark"] .dialogue-section details summary {
+    color: var(--periwinkle-mist);
+    background: var(--surface-soft);
+    border-color: var(--hairline);
+  }
+  .summary-chevron {
+    font-size: 10px; color: var(--muted-soft);
+    transition: transform .22s; margin-left: auto;
+  }
+  .dialogue-section details[open] .summary-chevron { transform: rotate(180deg); }
+
+  /* 펼침 영역 */
+  .dlg-detail { padding-top: 1.5rem; }
+  .dlg-opening {
+    font-size: 15px; line-height: 1.82;
+    color: var(--body); margin-bottom: 2rem;
+  }
+
+  /* 의견 스펙트럼 레이블 */
+  .opinion-section-label {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted-soft); margin-bottom: 0.5rem;
+  }
+  .opinion-rule {
+    height: 1px;
+    background-image: linear-gradient(to right, var(--hairline) 0%, var(--hairline) 60%, transparent 100%);
+    margin-bottom: 1rem;
+  }
+
+  /* 의견 블록 */
+  .opinion-block { display: flex; flex-direction: column; margin-bottom: 2rem; }
+  .opinion-item {
+    display: flex; align-items: stretch;
+    padding: 1.125rem 0;
+  }
+  .opinion-item + .opinion-item { border-top: 0.5px solid var(--hairline-soft); }
+
+  .opinion-bar { width: 2px; flex-shrink: 0; margin-right: 1.125rem; border-radius: 1px; }
+  .opinion-bar.pos { background: #3a5d78; }
+  .opinion-bar.cau { background: #5a7568; }
+  .opinion-bar.neg { background: #9e4a34; }
+  [data-theme="dark"] .opinion-bar.pos { background: #8aa8b8; }
+  [data-theme="dark"] .opinion-bar.cau { background: #8ba898; }
+  [data-theme="dark"] .opinion-bar.neg { background: #d4836a; }
+
+  .opinion-inner { flex: 1; min-width: 0; }
+  .opinion-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .opinion-label {
+    font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px;
+  }
+  .opinion-label.pos { background: #e8f0f5; color: #2a4560; }
+  .opinion-label.cau { background: #efe9de; color: #3a4a40; }
+  .opinion-label.neg { background: #f5ece8; color: #6e2e1e; }
+  [data-theme="dark"] .opinion-label.pos { background: rgba(138,168,184,0.18); color: #a2b8c6; }
+  [data-theme="dark"] .opinion-label.cau { background: rgba(139,168,152,0.18); color: #8ba898; }
+  [data-theme="dark"] .opinion-label.neg { background: rgba(212,131,106,0.15); color: #d4836a; }
+
+  .opinion-source { font-size: 12px; color: var(--muted-soft); }
+  .opinion-text { font-size: 15px; color: var(--body); line-height: 1.8; margin-bottom: 1rem; }
+
+  /* 시나리오 트리거 */
+  .scenario-trigger {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 4px 11px 4px 8px;
+    border: 0.5px solid var(--hairline); border-radius: 2px;
+    background: transparent; cursor: pointer; user-select: none;
+    transition: background .15s, border-color .15s;
+  }
+  .scenario-trigger:hover { background: var(--surface-soft); border-color: var(--pond-sage); }
+  .sc-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .sc-dot.pos { background: #3a5d78; }
+  .sc-dot.cau { background: #5a7568; }
+  .sc-dot.neg { background: #9e4a34; }
+  [data-theme="dark"] .sc-dot.pos { background: #8aa8b8; }
+  [data-theme="dark"] .sc-dot.cau { background: #8ba898; }
+  [data-theme="dark"] .sc-dot.neg { background: #d4836a; }
+  .sc-trigger-text {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    color: var(--ink); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .sc-vdivider { width: 0.5px; height: 10px; background: var(--hairline); flex-shrink: 0; }
+  .sc-trigger-sub { font-size: 12px; color: var(--muted); }
+  .sc-chevron {
+    font-size: 9px; color: var(--muted-soft);
+    transition: transform .22s; margin-left: 1px;
+    flex-shrink: 0; display: inline-block;
+  }
+  .sc-chevron.open { transform: rotate(180deg); }
+
+  /* 시나리오 바디 */
+  .scenario-body {
+    overflow: hidden; max-height: 0; opacity: 0;
+    transition: max-height .35s ease, opacity .28s ease;
+  }
+  .scenario-body.open { max-height: 600px; opacity: 1; }
+  .scenario-grid {
+    display: grid; grid-template-columns: 56px 1fr;
+    gap: 7px 16px; padding: 14px 16px;
+    background: var(--surface-soft); border-radius: 3px;
+    margin-top: 10px;
+  }
+  .sg-label {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted-soft); padding-top: 3px;
+  }
+  .sg-value { font-size: 14px; color: var(--body); line-height: 1.7; }
+
+  /* 역사 인사이트 */
+  .history-block {
+    margin-bottom: 2rem; padding: 1rem 1.25rem;
+    background: var(--surface-soft); border-radius: 3px;
+  }
+  .history-label {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--pond-shadow); margin-bottom: 6px;
+  }
+  [data-theme="dark"] .history-label { color: var(--d-cli-dark); }
+  .history-title {
+    font-family: var(--font-display); font-size: 17px;
+    font-weight: 500; font-style: italic;
+    color: var(--pond-midnight); margin-bottom: 8px; line-height: 1.3;
+  }
+  [data-theme="dark"] .history-title { color: var(--periwinkle-mist); }
+  .history-text { font-size: 14px; color: var(--body); line-height: 1.78; }
+
+  /* 결정 포인트 */
+  .cp-block {
+    padding: 1.125rem 1.375rem;
+    background: var(--surface-soft); border-radius: 3px;
+    margin-bottom: 1.5rem;
+  }
+  .cp-title {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--pond-cobalt); margin-bottom: 0.875rem;
+  }
+  [data-theme="dark"] .cp-title { color: var(--periwinkle-mist); }
+  .cp-row {
+    display: flex; gap: 14px; align-items: baseline;
+    font-size: 14px; line-height: 1.7; padding: 6px 0;
+  }
+  .cp-row + .cp-row { border-top: 0.5px solid var(--hairline-soft); }
+  .cp-label {
+    flex-shrink: 0; font-family: var(--font-mono);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); min-width: 52px; padding-top: 3px;
+  }
+  .cp-text { color: var(--body-strong); line-height: 1.7; }
+  .cp-note { color: var(--muted); font-size: 13px; display: block; margin-top: 2px; }
+
+  /* 접기 버튼 */
+  .dlg-close-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 14px;
+    border: 0.5px solid var(--hairline); border-radius: 2px;
+    background: transparent; cursor: pointer;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); transition: background .15s, border-color .15s;
+    width: fit-content;
+  }
+  .dlg-close-btn:hover { background: var(--surface-soft); border-color: var(--pond-sage); color: var(--body); }
+
   /* ─── FULL-BLEED SECTION ANCHOR BANDS (모네 풀-블리드 챕터 표지 · v7.6 추가 축소) ─── */
   .section-anchor {
     position: relative;
@@ -2391,9 +2594,10 @@
 <div class="dialogue-section">
   <div class="dialogue-glow"></div>
   <div class="dialogue-inner">
-    <div class="dialogue-heading fade-in"><svg class="lucide lucide-lg" viewBox="0 0 24 24" style="color:#6EE7B7"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg> 이번 주 다이얼로그 주제</div>
 
     <div class="cross-card fade-in stagger-1">
+
+      <!-- 헤더: 번호 + 도메인 + 제목 -->
       <div class="cross-header">
         <div class="cross-num">1</div>
         <div>
@@ -2401,67 +2605,339 @@
           <div class="cross-title">트럼프-시 "관리된 무역"과 AI 반도체 수출통제의 역설</div>
         </div>
       </div>
-      <div class="cross-body">
-        <div class="cross-row">
-          <div class="cr-text">
-            베이징 정상회담에서 미중은 $30~50억 관세 인하 "Board of Trade"를 합의했지만
-            <span class="domain-pill dp-mac">거시경제</span>,
-            AI 반도체(H200)의 조건부 허가는 사실상 집행 불가능한 조건을 달고 있고
-            <span class="domain-pill dp-ai">AI·기술</span>,
-            타이완 문제·희토류 공급망은 여전히 핵심 지정학 긴장 축으로 남아 있다
-            <span class="domain-pill dp-geo">지정학</span>.
-            "관리된 무역"이 기술 디커플링과 공존할 수 있는지에 대한 근본적 질문이 제기된다.
-          </div>
-        </div>
-        <div class="cross-row">
-          <div class="cr-label">Thought Topic</div>
-          <div class="cr-text">
-            '미중 무역 해빙의 허상 — 관세는 낮추고 반도체는 봉쇄하는 모순 구조'를 통해 경제 안보와 개방 사이의 딜레마를 분석.
-          </div>
-        </div>
-        <div class="tags cross-tags" style="margin-top:0">
-          <span class="tag breaking">#긴급</span>
-          <span class="tag">#관리된무역</span><span class="tag">#수출통제</span>
-          <span class="tag">#AI반도체</span><span class="tag">#전략적디커플링</span>
-          <span class="tag">#미국</span><span class="tag">#중국</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="cross-card fade-in stagger-2">
+      <div class="cross-body">
+
+        <!-- 논의주제 — 항상 보임 -->
+        <div class="dlg-topic-wrap">
+          <div class="dlg-topic">관세는 낮추고 반도체는 봉쇄하는 미중 "관리된 경쟁" — 경제 협력과 기술 디커플링을 동시에 추구하는 이 구조적 모순은 과연 지속 가능한가?</div>
+        </div>
+
+        <!-- 의견 스펙트럼 아코디언 -->
+        <details>
+          <summary>
+            <span>더 깊이 생각하기</span>
+            <span class="summary-chevron">▾</span>
+          </summary>
+
+          <div class="dlg-detail">
+
+            <!-- 오프닝 -->
+            <div class="dlg-opening">
+              5월 14~15일 베이징 정상회담에서 트럼프와 시진핑은 관세 트루스와 희토류·농산물 딜을 발표했다. 일론 머스크, 팀 쿡, 래리 핑크가 수행단에 포함됐고 중국의 $1조 규모 미국산 물품 구매 기대감이 시장에 형성됐다. 그러나 합의 직후부터 양측은 내용에 대해 엇갈린 해석을 내놓았고, AI 반도체 수출통제와 희토류 지렛대는 그대로 남아 있다. 베이징 합의가 새로운 미중 관계의 시작점인지, 아니면 구조적 모순을 봉합한 전술적 휴전에 불과한지를 두고 의견이 선명하게 갈린다.
+            </div>
+
+            <!-- 의견 스펙트럼 -->
+            <div class="opinion-section-label">의견 스펙트럼</div>
+            <div class="opinion-rule"></div>
+
+            <div class="opinion-block">
+
+              <!-- 낙관 -->
+              <div class="opinion-item">
+                <div class="opinion-bar pos"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label pos">낙관</span>
+                    <span class="opinion-source">USTR · Coface · 재계</span>
+                  </div>
+                  <div class="opinion-text">베이징 합의를 가장 적극적으로 환영한 것은 중국 시장 재접근을 원하는 기술 기업들이었다. 미 상무부와 USTR은 Board of Trade 메커니즘이 관세 불확실성으로 인한 공급망 교란을 완화할 것으로 평가했다. Coface는 단기 수출입 계약 재개를 위한 최소한의 신뢰 기반이 마련됐다고 분석했다. 이 시각에서 "관리된 경쟁"은 완벽하지 않더라도 예측 가능한 규칙의 복원이라는 점에서 의미 있는 진전이다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc1a','chev1a')">
+                    <span class="sc-dot pos"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">"관리된 경쟁" 프레임 제도화</span>
+                    <span class="sc-chevron" id="chev1a">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc1a">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">관세 트루스 정례화 + 반도체 통제 유지. 경제 협력과 기술 봉쇄의 이중 구조가 새로운 국제 무역 규범으로 고착되는 경로</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">Nvidia 중국 시장 부분 재진입 시도. 한국 산업부 대중 수출규정 법률 검토 착수. EY는 인도-태평양 중견국의 전략적 자율성 추구 가속화 전망</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">개도국 디지털 인프라 조달이 미·중 기술 규범권 중 하나로 사실상 편입. GGGI 파트너국 그린디지털 조달에서 진영 선택 압박 시작</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">표면적 안정 속에서 기술 표준 분화가 조용히 진행 — 개도국이 뒤늦게 종속을 인식하게 되는 경로</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 신중 -->
+              <div class="opinion-item">
+                <div class="opinion-bar cau"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label cau">신중</span>
+                    <span class="opinion-source">IMF · UNCTAD · EY</span>
+                  </div>
+                  <div class="opinion-text">게오르기에바 IMF 총재는 "무역 파편화가 글로벌 GDP의 최대 7%를 잠식할 수 있다"고 경고하며, 이번 합의 수준의 관세 조정으로는 이미 진행된 구조적 단절을 되돌릴 수 없다고 시사했다. UNCTAD는 비관세장벽이 이미 88개국에서 관세보다 높은 수출비용을 유발하고 있다고 지적했다. EY 지정학 분석은 인도-태평양 국가들이 미중 양측 모두 지역 정당성 확보에서 뒤처지고 있다고 인식함을 확인했다 — 회담의 성과가 제3국에는 설득력 있게 전달되지 않고 있다는 뜻이다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc1b','chev1b')">
+                    <span class="sc-dot cau"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">기술 디커플링 가속, 합의 형해화</span>
+                    <span class="sc-chevron" id="chev1b">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc1b">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">Blackwell 추가 통제 + Huawei Ascend 자립 임계점 도달. 합의 프레임은 껍데기만 남고 실질적 디커플링이 가속되는 경로</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">CFR "집행 불가능" 평가 현실화. IEA AI 데이터센터 2030년 950 TWh 속에서 미·중 칩 생태계가 별도 에너지·인프라 표준 형성 시작</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">Global South 기술 진영 선택 압박 본격화. GGGI 개도국 그린디지털 전환 속도 전반적으로 지연</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">기술 표준 분화가 에너지 인프라로 확산 — 개도국 재생에너지 조달 구조까지 진영 논리로 재편될 가능성</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 회의 -->
+              <div class="opinion-item">
+                <div class="opinion-bar neg"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label neg">회의</span>
+                    <span class="opinion-source">CFR · ML Strategies</span>
+                  </div>
+                  <div class="opinion-text">CFR은 미국의 수출통제 정책 전반을 "전략적으로 비일관적이고 집행 불가능"하다고 평가했다. 미국 하원 외교위원회는 블랙웰 시리즈 수출을 무기 판매와 동일하게 규제하는 AI OVERWATCH 법안을 통과시켰다. 관세를 낮추면서 반도체를 무기 수준으로 봉쇄하는 이 이중 구조는 "관리된 경쟁" 프레임 자체의 내적 모순을 가장 선명하게 드러낸다. 기술 패권 경쟁과 경제 상호의존은 동시에 관리될 수 없으며, 두 마리 토끼를 잡으려는 시도가 결국 양쪽 모두에서 신뢰를 잃는다는 것이다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc1c','chev1c')">
+                    <span class="sc-dot neg"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">합의 붕괴, 갈등 재점화</span>
+                    <span class="sc-chevron" id="chev1c">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc1c">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">타이완 해협 사건 또는 Board of Trade 불이행이 촉발. AI OVERWATCH 법안 상원 통과가 가세하는 경로</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">중국 희토류 수출 제한 카드 사용. IMF 성장률 추가 하향. BRICS+ 미중 갈등을 결속 강화 촉매로 활용</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">신흥·개도국 무역 충격 집중. 공급망 재편 비용이 가장 취약한 국가들에 전가되는 구조 심화</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">다자 무역 체계 신뢰 붕괴 — 이후 어떤 합의도 이행 가능성을 의심받는 구조적 불신 고착</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /opinion-block -->
+
+            <!-- 역사 인사이트 -->
+            <div class="history-block">
+              <div class="history-label">역사 인사이트</div>
+              <div class="history-title">경제 통합과 기술 봉쇄의 공존은 전에도 실패했다</div>
+              <div class="history-text">1990년대 말 미국은 중국의 WTO 가입을 지지하면서 동시에 바세나르 협정으로 이중용도 기술 수출을 통제했다. 경제 통합으로 정치적 자유화를 유도한다는 관여 전략과 기술 봉쇄를 병행한 것이다. 결과는 알려진 대로다 — 중국은 경제적으로 통합됐지만 정치적으로는 수렴하지 않았고, 기술 통제는 오히려 중국 반도체·통신 산업 자립의 명분이 됐다. 지금의 "관리된 경쟁 + 반도체 봉쇄" 구조는 그 실험의 두 번째 버전이며, 그때도 실패의 진단은 10년 늦게 나왔다.</div>
+            </div>
+
+            <!-- 결정 포인트 -->
+            <div class="cp-block">
+              <div class="cp-title">결정 포인트</div>
+              <div class="cp-row">
+                <span class="cp-label">해석</span>
+                <span class="cp-text">베이징 합의를 새로운 질서의 시작으로 읽는가, 구조적 모순을 봉합한 전술적 휴전으로 읽는가
+                  <span class="cp-note">— 이 판단이 이후 모든 대응 전략의 출발점이 된다</span>
+                </span>
+              </div>
+              <div class="cp-row">
+                <span class="cp-label">추가관찰</span>
+                <span class="cp-text">AI OVERWATCH 법안의 상원 통과 여부와 Board of Trade 첫 분기 실적
+                  <span class="cp-note">— 낙관·신중·회의 중 어느 시나리오가 현실화되는지를 알려줄 가장 이른 신호</span>
+                </span>
+              </div>
+              <div class="cp-row">
+                <span class="cp-label">행동</span>
+                <span class="cp-text">Global South AI 거버넌스 네트워크 접촉을 이번 주 시작할 것인가, 다음 분기로 미룰 것인가
+                  <span class="cp-note">— 불확실해도 지금 내릴 수 있는 가장 작은 결정</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 접기 버튼 -->
+            <button class="dlg-close-btn" onclick="closeDetails(this)">
+              ▴ 접기
+            </button>
+
+          </div><!-- /dlg-detail -->
+        </details>
+
+      </div><!-- /cross-body -->
+    </div><!-- /cross-card ① -->
+
+    <!-- 카드 간 페더 구분선 -->
+    <div style="height:1px;background-image:linear-gradient(to right,transparent 0%,var(--hairline) 18%,var(--hairline) 82%,transparent 100%);margin:0;"></div>
+
+    <div class="cross-card fade-in stagger-2" style="padding-top:48px;">
+
+      <!-- 헤더: 번호 + 도메인 + 제목 -->
       <div class="cross-header">
         <div class="cross-num">2</div>
         <div>
-          <div class="cross-domain-label">녹색성장 × 거시경제 × 기후변화</div>
-          <div class="cross-title">녹색전환의 시장 실패와 기후금융 격차 — 개도국은 어디로</div>
+          <div class="cross-domain-label">AI·기술 × 기후변화 × 녹색성장</div>
+          <div class="cross-title">AI 인프라의 에너지 폭식 — 개도국 녹색전환의 몫을 빼앗고 있는가</div>
         </div>
       </div>
+
       <div class="cross-body">
-        <div class="cross-row">
-          <div class="cr-text">
-            녹색전환이 기술 문제가 아닌 시장 실패 문제임이 확인됐지만
-            <span class="domain-pill dp-grn">녹색성장</span>,
-            개도국은 연간 $2.4조의 기후금융 필요량 중 극히 일부만 수혜받고 있으며
-            <span class="domain-pill dp-mac">거시경제</span>,
-            EU 배출권거래제(ETS) 개편 논쟁은 탄소가격 메커니즘의 정치적 지속가능성 자체에 의문을 제기한다
-            <span class="domain-pill dp-cli">기후변화</span>.
-            세 도메인의 충격이 동시에 가장 취약한 개도국에 집중되는 구조다.
-          </div>
+
+        <!-- 논의주제 — 항상 보임 -->
+        <div class="dlg-topic-wrap">
+          <div class="dlg-topic">AI 데이터센터의 전력수요가 2030년 현 수준의 두 배로 급증하면서 신재생에너지 투자 자원과 핵심광물 수요를 선진국이 선점하고 있다 — 개도국의 에너지전환에 투입돼야 할 재원과 자원이 AI 인프라로 먼저 흡수되는 이 구조를 막을 수 있는가, 아니면 개도국의 녹색전환은 뒤로 밀릴 수밖에 없는가?</div>
         </div>
-        <div class="cross-row">
-          <div class="cr-label">Thought Topic</div>
-          <div class="cr-text">
-            '녹색전환의 가장 큰 적은 기술이 아닌 시장 — 개도국을 위한 새로운 금융 설계가 필요하다'는 앵글로, 혼합금융 설계의 혁신과 국제개발기구의 역할을 재정의하는 논의.
-          </div>
-        </div>
-        <div class="tags cross-tags" style="margin-top:0">
-          <span class="tag emerging">#부상중</span>
-          <span class="tag">#시장실패</span><span class="tag">#혼합금융</span>
-          <span class="tag">#기후금융</span><span class="tag">#글로벌사우스</span>
-          <span class="tag">#EU배출권거래제</span><span class="tag">#에너지전환</span>
-        </div>
-      </div>
-    </div>
+
+        <!-- 의견 스펙트럼 아코디언 -->
+        <details>
+          <summary>
+            <span>더 깊이 생각하기</span>
+            <span class="summary-chevron">▾</span>
+          </summary>
+
+          <div class="dlg-detail">
+
+            <!-- 오프닝 -->
+            <div class="dlg-opening">
+              IEA는 AI 데이터센터 전력수요가 2025년 485 TWh에서 2030년 최대 1,050 TWh로 배증할 것으로 전망했다. 이 수요를 신재생에너지로 충당하려는 빅테크의 RE100 조달이 가속화되면서, 선진국의 태양광·풍력 투자와 핵심광물 수요가 급증하고 있다. 문제는 이 자원들이 원래 개도국 에너지전환에 투입돼야 할 몫과 경쟁한다는 것이다 — 투자 재원, 그리드 인프라, 리튬·코발트·희토류 같은 핵심광물이 AI 인프라 쪽으로 먼저 흡수되면 개도국의 녹색전환은 구조적으로 후순위로 밀린다. AI 혁명의 에너지 비용을 누가 치르는가를 두고 의견이 선명하게 갈린다.
+            </div>
+
+            <!-- 의견 스펙트럼 -->
+            <div class="opinion-section-label">의견 스펙트럼</div>
+            <div class="opinion-rule"></div>
+
+            <div class="opinion-block">
+
+              <!-- 낙관 -->
+              <div class="opinion-item">
+                <div class="opinion-bar pos"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label pos">낙관</span>
+                    <span class="opinion-source">IEA · IFC · 빅테크</span>
+                  </div>
+                  <div class="opinion-text">IEA는 신재생에너지 공급이 빠르게 확대되고 있어 AI 수요 증가를 흡수할 여력이 있다고 분석한다. 빅테크의 RE100 조달이 오히려 신재생에너지 시장을 키우는 촉매가 된다는 논리다. IFC는 $58억 양허성 금융 약정으로 개도국 기후금융 확대 의지를 보이고 있으며, MDB 플랫폼이 AI 인프라와 에너지전환을 병행 지원할 수 있다고 본다. 이 시각에서 AI 인프라 팽창과 개도국 녹색전환은 제로섬 게임이 아니다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc2a','chev2a')">
+                    <span class="sc-dot pos"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">신재생에너지 확대로 AI·기후 동시 충당</span>
+                    <span class="sc-chevron" id="chev2a">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc2a">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">신재생에너지 공급이 AI 수요와 개도국 에너지전환 수요를 동시에 충당할 만큼 빠르게 확대되는 경로 — 제로섬이 아닌 파이 확대</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">태양광·풍력 단가 지속 하락. 빅테크 RE100 조달이 신흥국 재생에너지 프로젝트 투자 촉매로 작용하는 사례 증가. IFC·AIIB 민간동원 플랫폼 확대</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">신재생에너지 시장 전체가 성장하면서 개도국 프로젝트도 수혜. 그러나 핵심광물 수요 경쟁과 그리드 인프라 격차는 여전히 해소 과제로 남음</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">공급 총량은 늘어도 지역 배분이 선진국 집중으로 고착 — 개도국이 성장하는 파이에서 소외되는 구조적 불균형</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 신중 -->
+              <div class="opinion-item">
+                <div class="opinion-bar cau"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label cau">신중</span>
+                    <span class="opinion-source">Brookings · IEA · ODI</span>
+                  </div>
+                  <div class="opinion-text">Brookings는 AI 데이터센터 전력수요 급증이 선진국 그리드 인프라와 핵심광물 투자를 우선 흡수하면서 개도국 에너지전환에 투입될 재원이 구조적으로 후순위로 밀린다고 경고했다. ODI는 리튬·코발트·희토류 등 핵심광물에서 AI 인프라와 개도국 에너지전환이 실질적인 수요 경쟁을 벌이고 있음을 확인했다. 신재생에너지 공급 총량이 늘어도 배분의 불균형이 심화된다면 개도국 격차는 오히려 확대될 수 있다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc2b','chev2b')">
+                    <span class="sc-dot cau"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">자원 배분 불균형 심화, 개도국 후순위 고착</span>
+                    <span class="sc-chevron" id="chev2b">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc2b">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">신재생에너지 공급은 늘지만 투자 재원·핵심광물·그리드 인프라가 선진국 AI 인프라에 우선 배분되면서 개도국 에너지전환이 구조적으로 후순위로 밀리는 경로</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">IEA: 미국이 세계 AI 데이터센터 용량의 45% 점유, 신규 전력수요의 50% 차지. 핵심광물 수요에서 AI 인프라 비중 급증. MDB 재원 배분에서 디지털 인프라 우선 압력 가시화</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">개도국은 기후금융 필요액 $2.4조와 실제 공급 간 격차가 더 벌어지고, 핵심광물 가격 상승으로 에너지전환 비용도 증가. GGGI 파트너국의 재생에너지 프로젝트 조달 비용 상승</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">MDB가 AI 인프라 지원을 기후금융으로 분류하는 "워싱"이 확산되면서 개도국 실질 기후금융이 통계상으로는 유지되나 실제로는 축소되는 구조</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 회의 -->
+              <div class="opinion-item">
+                <div class="opinion-bar neg"></div>
+                <div class="opinion-inner">
+                  <div class="opinion-label-row">
+                    <span class="opinion-label neg">회의</span>
+                    <span class="opinion-source">정치경제학 진영 · 개도국 연대</span>
+                  </div>
+                  <div class="opinion-text">일부 정치경제학자들은 이 구조가 시장 실패가 아니라 설계된 불평등이라고 본다. 선진국이 AI 혁명의 수혜를 누리면서 그 에너지 비용을 개도국의 기후 목표 후퇴로 전가하는 구조라는 것이다. 개도국 연대는 AI 데이터센터의 신재생에너지 우선 조달이 개도국 그리드에 공급돼야 할 전력을 선진국 서버팜으로 돌리는 것과 다름없다고 비판한다. 이 시각에서 기술 중립적 해법은 없으며, 글로벌 AI 거버넌스에 에너지 정의(energy justice) 원칙을 강제하지 않는 한 구조는 바뀌지 않는다.</div>
+                  <div class="scenario-trigger" onclick="toggleSc('sc2c','chev2c')">
+                    <span class="sc-dot neg"></span>
+                    <span class="sc-trigger-text">미래 시나리오</span>
+                    <span class="sc-vdivider"></span>
+                    <span class="sc-trigger-sub">구조적 전가 고착, 개도국 녹색전환 경로 붕괴</span>
+                    <span class="sc-chevron" id="chev2c">▾</span>
+                  </div>
+                  <div class="scenario-body" id="sc2c">
+                    <div class="scenario-grid">
+                      <span class="sg-label">요지</span>
+                      <span class="sg-value">AI 혁명의 에너지 비용이 구조적으로 개도국에 전가되면서 녹색전환 경로 자체가 현실적으로 닫히는 경로 — 에너지 정의 없는 AI 확산의 귀결</span>
+                      <span class="sg-label">동향</span>
+                      <span class="sg-value">개도국 연대가 글로벌 AI 거버넌스에 에너지 정의 원칙 포함을 요구하기 시작. 인도 AI 임팩트 서밋·아프리카 AI 위원회가 독자 프레임 구축 시도. COP30(브라질)에서 AI·에너지 충돌 공론화 예상</span>
+                      <span class="sg-label">파급</span>
+                      <span class="sg-value">개도국 화석연료 의존 구조 고착, 2030 NDC 달성 가능성 사실상 소멸. GGGI를 포함한 국제개발기구의 역할이 전환 지원에서 적응 지원으로 전면 이동 불가피</span>
+                      <span class="sg-label">리스크</span>
+                      <span class="sg-value">이 구조가 국제사회에서 공식적으로 인정되지 않은 채 "지속 가능한 AI" 담론만 반복 — AI 거버넌스와 기후 거버넌스가 별개로 작동하면서 둘 다 실효성을 잃는 것</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /opinion-block -->
+
+            <!-- 결정 포인트 -->
+            <div class="cp-block">
+              <div class="cp-title">결정 포인트</div>
+              <div class="cp-row">
+                <span class="cp-label">해석</span>
+                <span class="cp-text">AI 인프라 팽창과 개도국 에너지전환을 제로섬 경쟁으로 읽는가, 아니면 신재생에너지 시장 확대로 함께 해결 가능한 문제로 읽는가
+                  <span class="cp-note">— 이 해석이 GGGI의 AI·기후 연계 전략 방향을 결정한다</span>
+                </span>
+              </div>
+              <div class="cp-row">
+                <span class="cp-label">추가관찰</span>
+                <span class="cp-text">빅테크 RE100 조달이 실제로 개도국 신재생에너지 프로젝트에 투자되는지, 아니면 선진국 그리드에만 집중되는지
+                  <span class="cp-note">— 낙관·신중·회의 중 어느 시나리오가 현실화되는지를 알려줄 가장 직접적인 신호</span>
+                </span>
+              </div>
+              <div class="cp-row">
+                <span class="cp-label">행동</span>
+                <span class="cp-text">AI·에너지 충돌 이슈를 GGGI 내부 전략 문서(예: 2027 Work Program)에 명시적 리스크 항목으로 포함시킬 것인가, 현재 프레임 내에서 흡수할 것인가
+                  <span class="cp-note">— 공개 포지션 전에 내부 합의를 먼저 만드는 경로</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 접기 버튼 -->
+            <button class="dlg-close-btn" onclick="closeDetails(this)">
+              ▴ 접기
+            </button>
+
+          </div><!-- /dlg-detail -->
+        </details>
+
+      </div><!-- /cross-body -->
+    </div><!-- /cross-card ② -->
 
   </div>
 </div>
@@ -3230,6 +3706,25 @@
   /* ── ④ 워치리스트 아코디언 ── */
   function toggleWatch(btn) {
     btn.closest('.watch-item').classList.toggle('open');
+  }
+
+  /* ── 다이얼로그 시나리오 토글 ── */
+  function toggleSc(bodyId, chevId) {
+    const body = document.getElementById(bodyId);
+    const chev = document.getElementById(chevId);
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    chev.classList.toggle('open', !isOpen);
+  }
+
+  /* ── 다이얼로그 아코디언 접기 ── */
+  function closeDetails(btn) {
+    const details = btn.closest('details');
+    if (details) {
+      details.removeAttribute('open');
+      const summary = details.querySelector('summary');
+      if (summary) summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   /* ── ⑤ 도메인 필터 ── */
